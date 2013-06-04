@@ -91,4 +91,20 @@ describe Tradier::API::Markets do
     end
   end
 
+  describe "#strikes" do
+    before do
+      stub_get("/v1/markets/strikes").with(:query => {:symbol => "AAPL"}).to_return(:body => fixture("strikes.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+    end
+    it "requests the correct resource" do
+      @client.strikes("AAPL")
+      expect(a_get("/v1/markets/strikes").with(:query => {:symbol => "AAPL"})).to have_been_made
+    end
+    it "returns an array of strikes" do
+      strikes = @client.strikes("AAPL")
+      expect(strikes).to be_an Array
+      expect(strikes.size).to eq(167)
+      expect(strikes.first).to be_a Float
+    end
+  end
+
 end

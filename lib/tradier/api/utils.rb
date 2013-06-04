@@ -68,6 +68,16 @@ module Tradier
         end
       end
 
+      # @param klass [Class]
+      # @param request_method [Symbol]
+      # @param path [String]
+      # @param options [Hash]
+      # @return [Array]
+      def strike_objects_from_response(request_method, path, options={})
+        response_body = send(request_method.to_sym, path, options)[:body]
+        response_body[:strikes][:strike]
+      end
+
     end
   end
 end

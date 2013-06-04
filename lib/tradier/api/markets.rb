@@ -19,6 +19,10 @@ module Tradier
         expiration_objects_from_response(Date, :get, '/markets/expirations', :symbol => symbol)
       end
 
+      def strikes(symbol)
+        strike_objects_from_response(:get, '/markets/strikes', :symbol => symbol)
+      end
+
       private
 
       def normalized_symbols(symbols)
