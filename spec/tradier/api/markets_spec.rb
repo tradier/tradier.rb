@@ -75,4 +75,20 @@ describe Tradier::API::Markets do
     end
   end
 
+  describe "#expirations" do
+    before do
+      stub_get("/v1/markets/expirations").with(:query => {:symbol => "AAPL"}).to_return(:body => fixture("expirations.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+    end
+    it "requests the correct resource" do
+      @client.expirations("AAPL")
+      expect(a_get("/v1/markets/expirations").with(:query => {:symbol => "AAPL"})).to have_been_made
+    end
+    it "returns an array of dates" do
+      expirations = @client.expirations("AAPL")
+      expect(expirations).to be_an Array
+      expect(expirations.size).to eq(12)
+      expect(expirations.first).to be_a Date
+    end
+  end
+
 end

@@ -15,6 +15,10 @@ module Tradier
       end
       alias chain chains
 
+      def expirations(symbol)
+        expiration_objects_from_response(Date, :get, '/markets/expirations', :symbol => symbol)
+      end
+
       private
 
       def normalized_symbols(symbols)

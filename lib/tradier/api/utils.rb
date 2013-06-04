@@ -49,6 +49,25 @@ module Tradier
         end
       end
 
+      # @param klass [Class]
+      # @param request_method [Symbol]
+      # @param path [String]
+      # @param options [Hash]
+      # @return [Array]
+      def expiration_objects_from_response(klass, request_method, path, options={})
+        response_body = send(request_method.to_sym, path, options)[:body]
+        date_objects_from_array(klass, response_body[:expirations][:date])
+      end
+
+      # @param klass [Class]
+      # @param array [Array]
+      # @return [Array]
+      def date_objects_from_array(klass, response)
+        response.map do |element|
+          Date.parse(element)
+        end
+      end
+
     end
   end
 end
