@@ -6,12 +6,14 @@ module Tradier
       include Tradier::API::Utils
 
       def quotes(symbols, options={})
-        quote_objects_from_response(Tradier::Quote, :get, '/markets/quotes', options.merge('symbols' => normalized_symbols(symbols)))
+        options.merge!('symbols' => normalized_symbols(symbols))
+        quote_objects_from_response(Tradier::Quote, :get, '/markets/quotes', options)
       end
       alias quote quotes
 
       def chains(symbol, options={})
-        option_quote_objects_from_response(Tradier::OptionQuote, :get, '/markets/options/chains', options.merge('symbol' => symbol))
+        options.merge!('symbol' => symbol)
+        option_quote_objects_from_response(Tradier::OptionQuote, :get, '/markets/options/chains', options)
       end
       alias chain chains
 
