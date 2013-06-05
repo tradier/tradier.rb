@@ -60,11 +60,11 @@ describe Tradier::API::Markets do
 
   describe "#chains" do
     before do
-      stub_get("/v1/markets/chains").with(:query => {:symbol => "AAPL", :month => '6', :year => 2013}).to_return(:body => fixture("chain.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      stub_get("/v1/markets/options/chains").with(:query => {:symbol => "AAPL", :month => '6', :year => 2013}).to_return(:body => fixture("chain.json"), :headers => {:content_type => "application/json; charset=utf-8"})
     end
     it "requests the correct resource" do
       @client.chains("AAPL", :month => 6, :year => 2013)
-      expect(a_get("/v1/markets/chains").with(:query => {:symbol => "AAPL", :month => '6', :year => 2013})).to have_been_made
+      expect(a_get("/v1/markets/options/chains").with(:query => {:symbol => "AAPL", :month => '6', :year => 2013})).to have_been_made
     end
     it "returns an array of quotes" do
       chain = @client.chains("AAPL", :month => 6, :year => 2013)
@@ -77,11 +77,11 @@ describe Tradier::API::Markets do
 
   describe "#expirations" do
     before do
-      stub_get("/v1/markets/expirations").with(:query => {:symbol => "AAPL"}).to_return(:body => fixture("expirations.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      stub_get("/v1/markets/options/expirations").with(:query => {:symbol => "AAPL"}).to_return(:body => fixture("expirations.json"), :headers => {:content_type => "application/json; charset=utf-8"})
     end
     it "requests the correct resource" do
       @client.expirations("AAPL")
-      expect(a_get("/v1/markets/expirations").with(:query => {:symbol => "AAPL"})).to have_been_made
+      expect(a_get("/v1/markets/options/expirations").with(:query => {:symbol => "AAPL"})).to have_been_made
     end
     it "returns an array of dates" do
       expirations = @client.expirations("AAPL")
@@ -93,11 +93,11 @@ describe Tradier::API::Markets do
 
   describe "#strikes" do
     before do
-      stub_get("/v1/markets/strikes").with(:query => {:symbol => "AAPL"}).to_return(:body => fixture("strikes.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      stub_get("/v1/markets/options/strikes").with(:query => {:symbol => "AAPL"}).to_return(:body => fixture("strikes.json"), :headers => {:content_type => "application/json; charset=utf-8"})
     end
     it "requests the correct resource" do
       @client.strikes("AAPL")
-      expect(a_get("/v1/markets/strikes").with(:query => {:symbol => "AAPL"})).to have_been_made
+      expect(a_get("/v1/markets/options/strikes").with(:query => {:symbol => "AAPL"})).to have_been_made
     end
     it "returns an array of strikes" do
       strikes = @client.strikes("AAPL")

@@ -11,16 +11,16 @@ module Tradier
       alias quote quotes
 
       def chains(symbol, options={})
-        option_quote_objects_from_response(Tradier::OptionQuote, :get, '/markets/chains', options.merge('symbol' => symbol))
+        option_quote_objects_from_response(Tradier::OptionQuote, :get, '/markets/options/chains', options.merge('symbol' => symbol))
       end
       alias chain chains
 
       def expirations(symbol)
-        expiration_objects_from_response(Date, :get, '/markets/expirations', :symbol => symbol)
+        expiration_objects_from_response(Date, :get, '/markets/options/expirations', :symbol => symbol)
       end
 
       def strikes(symbol)
-        strike_objects_from_response(:get, '/markets/strikes', :symbol => symbol)
+        strike_objects_from_response(:get, '/markets/options/strikes', :symbol => symbol)
       end
 
       private
