@@ -153,4 +153,38 @@ describe Tradier::API::Markets do
     end
   end
 
+  describe '#timesales' do
+    before do
+      stub_get("/v1/markets/timesales").
+        with(:query => { :symbol => 'AAPL' }).
+        to_return(:body => fixture("timesales.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+    end
+    it "requests the correct resource" do
+      @client.timesales('AAPL')
+      expect(a_get("/v1/markets/timesales").with(:query => { :symbol => 'AAPL' })).to have_been_made
+    end
+    it "returns an array of Tradier::Timesales objects" do
+      timesales = @client.timesales('AAPL')
+      expect(timesales).to be_an Array
+      expect(timesales.first).to be_an Tradier::Timesales
+    end
+  end
+
+  describe '#history' do
+    before do
+      stub_get("/v1/markets/history").
+        with(:query => { :symbol => 'AAPL' }).
+        to_return(:body => fixture("history.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+    end
+    it "requests the correct resource" do
+      @client.history('AAPL')
+      expect(a_get("/v1/markets/history").with(:query => { :symbol => 'AAPL' })).to have_been_made
+    end
+    it "returns an array of Tradier::History objects" do
+      history = @client.history('AAPL')
+      expect(history).to be_an Array
+      expect(history.first).to be_a Tradier::History
+    end
+  end
+
 end

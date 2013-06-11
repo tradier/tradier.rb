@@ -40,6 +40,16 @@ module Tradier
         object_from_response(Tradier::Calendar, :get, '/markets/calendar', options)
       end
 
+      def timesales(symbol, options={})
+        options.merge!('symbol' => symbol)
+        timesales_objects_from_response(Tradier::Timesales, :get, '/markets/timesales', options)
+      end
+
+      def history(symbol, options={})
+        options.merge!('symbol' => symbol)
+        history_objects_from_response(Tradier::History, :get, '/markets/history', options)
+      end
+
       private
 
       def normalized_symbols(symbols)
