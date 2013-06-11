@@ -1,3 +1,4 @@
+require 'tradier/clock'
 require 'tradier/quote'
 require 'tradier/option_quote'
 require 'tradier/balance'
@@ -78,6 +79,11 @@ module Tradier
       def strike_objects_from_response(request_method, path, options={})
         response_body = send(request_method.to_sym, path, options)[:body]
         response_body[:strikes][:strike]
+      end
+
+      def object_from_response(klass, request_method, path, options)
+        response_body = send(request_method.to_sym, path, options)[:body]
+        klass.new(response_body)
       end
 
     end

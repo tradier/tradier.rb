@@ -123,4 +123,19 @@ describe Tradier::API::Markets do
     end
   end
 
+  describe '#clock' do
+    before do
+      stub_get("/v1/markets/clock").
+        to_return(:body => fixture("clock.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+    end
+    it "requests the correct resource" do
+      @client.clock
+      expect(a_get("/v1/markets/clock")).to have_been_made
+    end
+    it "returns a clock object" do
+      clock = @client.clock
+      expect(clock).to be_a Tradier::Clock
+    end
+  end
+
 end
