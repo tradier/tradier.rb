@@ -36,6 +36,10 @@ module Tradier
         object_from_response(Tradier::Clock, :get, '/markets/clock', options)
       end
 
+      def calendar(options={})
+        object_from_response(Tradier::Calendar, :get, '/markets/calendar', options)
+      end
+
       private
 
       def normalized_symbols(symbols)

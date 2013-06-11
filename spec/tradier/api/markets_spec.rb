@@ -138,4 +138,19 @@ describe Tradier::API::Markets do
     end
   end
 
+  describe '#calendar' do
+    before do
+      stub_get("/v1/markets/calendar").
+        to_return(:body => fixture("calendar.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+    end
+    it "requests the correct resource" do
+      @client.calendar
+      expect(a_get("/v1/markets/calendar")).to have_been_made
+    end
+    it "returns a calendar object" do
+      calendar = @client.calendar
+      expect(calendar).to be_a Tradier::Calendar
+    end
+  end
+
 end
