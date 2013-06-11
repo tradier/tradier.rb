@@ -9,12 +9,18 @@ describe Tradier::API::Markets do
   describe "#quotes" do
     context "when a single symbol passed" do
       before do
-        stub_get("/v1/markets/quotes").with(:query => {:symbols => "AAPL"}).to_return(:body => fixture("quote.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+        stub_get("/v1/markets/quotes").
+          with(:query => {:symbols => "AAPL"}).
+          to_return(:body => fixture("quote.json"), :headers => {:content_type => "application/json; charset=utf-8"})
       end
+
       it "requests the correct resource" do
         @client.quotes("AAPL")
-        expect(a_get("/v1/markets/quotes").with(:query => {:symbols => "AAPL"})).to have_been_made
+
+        expect(a_get("/v1/markets/quotes").
+          with(:query => {:symbols => "AAPL"})).to have_been_made
       end
+
       it "returns an array of quotes" do
         quotes = @client.quotes("AAPL")
         expect(quotes).to be_an Array
@@ -25,12 +31,18 @@ describe Tradier::API::Markets do
     end
     context "when multiple symbols passed as a comma delimited string" do
       before do
-        stub_get("/v1/markets/quotes").with(:query => {:symbols => "AAPL,GE"}).to_return(:body => fixture("quotes.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+        stub_get("/v1/markets/quotes").
+          with(:query => {:symbols => "AAPL,GE"}).
+          to_return(:body => fixture("quotes.json"), :headers => {:content_type => "application/json; charset=utf-8"})
       end
+
       it "requests the correct resource" do
         @client.quotes("AAPL,GE")
-        expect(a_get("/v1/markets/quotes").with(:query => {:symbols => "AAPL,GE"})).to have_been_made
+
+        expect(a_get("/v1/markets/quotes").
+          with(:query => {:symbols => "AAPL,GE"})).to have_been_made
       end
+
       it "returns an array of quotes" do
         quotes = @client.quotes("AAPL,GE")
         expect(quotes).to be_an Array
@@ -42,12 +54,18 @@ describe Tradier::API::Markets do
 
     context "when multiple symbols passed as an array" do
       before do
-        stub_get("/v1/markets/quotes").with(:query => {:symbols => "AAPL,GE"}).to_return(:body => fixture("quotes.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+        stub_get("/v1/markets/quotes").
+          with(:query => {:symbols => "AAPL,GE"}).
+          to_return(:body => fixture("quotes.json"), :headers => {:content_type => "application/json; charset=utf-8"})
       end
+
       it "requests the correct resource" do
         @client.quotes(["AAPL","GE"])
-        expect(a_get("/v1/markets/quotes").with(:query => {:symbols => "AAPL,GE"})).to have_been_made
+
+        expect(a_get("/v1/markets/quotes").
+          with(:query => {:symbols => "AAPL,GE"})).to have_been_made
       end
+
       it "returns an array of quotes" do
         quotes = @client.quotes(["AAPL","GE"])
         expect(quotes).to be_an Array
@@ -60,12 +78,17 @@ describe Tradier::API::Markets do
 
   describe "#chains" do
     before do
-      stub_get("/v1/markets/options/chains").with(:query => {:symbol => "AAPL", :month => '6', :year => 2013}).to_return(:body => fixture("chain.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      stub_get("/v1/markets/options/chains").
+        with(:query => {:symbol => "AAPL", :month => '6', :year => 2013}).
+        to_return(:body => fixture("chain.json"), :headers => {:content_type => "application/json; charset=utf-8"})
     end
+
     it "requests the correct resource" do
       @client.chains("AAPL", :month => 6, :year => 2013)
-      expect(a_get("/v1/markets/options/chains").with(:query => {:symbol => "AAPL", :month => '6', :year => 2013})).to have_been_made
+      expect(a_get("/v1/markets/options/chains").
+        with(:query => {:symbol => "AAPL", :month => '6', :year => 2013})).to have_been_made
     end
+
     it "returns an array of quotes" do
       chain = @client.chains("AAPL", :month => 6, :year => 2013)
       expect(chain).to be_an Array
@@ -77,12 +100,18 @@ describe Tradier::API::Markets do
 
   describe "#expirations" do
     before do
-      stub_get("/v1/markets/options/expirations").with(:query => {:symbol => "AAPL"}).to_return(:body => fixture("expirations.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      stub_get("/v1/markets/options/expirations").
+        with(:query => {:symbol => "AAPL"}).
+        to_return(:body => fixture("expirations.json"), :headers => {:content_type => "application/json; charset=utf-8"})
     end
+
     it "requests the correct resource" do
       @client.expirations("AAPL")
-      expect(a_get("/v1/markets/options/expirations").with(:query => {:symbol => "AAPL"})).to have_been_made
+
+      expect(a_get("/v1/markets/options/expirations").
+        with(:query => {:symbol => "AAPL"})).to have_been_made
     end
+
     it "returns an array of dates" do
       expirations = @client.expirations("AAPL")
       expect(expirations).to be_an Array
@@ -93,12 +122,18 @@ describe Tradier::API::Markets do
 
   describe "#strikes" do
     before do
-      stub_get("/v1/markets/options/strikes").with(:query => {:symbol => "AAPL"}).to_return(:body => fixture("strikes.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      stub_get("/v1/markets/options/strikes").
+        with(:query => {:symbol => "AAPL"}).
+        to_return(:body => fixture("strikes.json"), :headers => {:content_type => "application/json; charset=utf-8"})
     end
+
     it "requests the correct resource" do
       @client.strikes("AAPL")
-      expect(a_get("/v1/markets/options/strikes").with(:query => {:symbol => "AAPL"})).to have_been_made
+
+      expect(a_get("/v1/markets/options/strikes").
+        with(:query => {:symbol => "AAPL"})).to have_been_made
     end
+
     it "returns an array of strikes" do
       strikes = @client.strikes("AAPL")
       expect(strikes).to be_an Array
@@ -109,12 +144,18 @@ describe Tradier::API::Markets do
 
   describe "#option_quotes" do
     before do
-      stub_get("/v1/markets/options/quotes").with(:query => {:symbols => "AAPL150117C00440000,AAPL150117C00395000"}).to_return(:body => fixture("option_quotes.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      stub_get("/v1/markets/options/quotes").
+        with(:query => {:symbols => "AAPL150117C00440000,AAPL150117C00395000"}).
+        to_return(:body => fixture("option_quotes.json"), :headers => {:content_type => "application/json; charset=utf-8"})
     end
+
     it "requests the correct resource" do
       @client.option_quotes("AAPL150117C00440000,AAPL150117C00395000")
-      expect(a_get("/v1/markets/options/quotes").with(:query => {:symbols => "AAPL150117C00440000,AAPL150117C00395000"})).to have_been_made
+
+      expect(a_get("/v1/markets/options/quotes").
+        with(:query => {:symbols => "AAPL150117C00440000,AAPL150117C00395000"})).to have_been_made
     end
+
     it "returns an array of option quotes" do
       quotes = @client.option_quotes("AAPL150117C00440000,AAPL150117C00395000")
       expect(quotes).to be_an Array
@@ -128,10 +169,12 @@ describe Tradier::API::Markets do
       stub_get("/v1/markets/clock").
         to_return(:body => fixture("clock.json"), :headers => {:content_type => "application/json; charset=utf-8"})
     end
+
     it "requests the correct resource" do
       @client.clock
       expect(a_get("/v1/markets/clock")).to have_been_made
     end
+
     it "returns a clock object" do
       clock = @client.clock
       expect(clock).to be_a Tradier::Clock
@@ -143,10 +186,12 @@ describe Tradier::API::Markets do
       stub_get("/v1/markets/calendar").
         to_return(:body => fixture("calendar.json"), :headers => {:content_type => "application/json; charset=utf-8"})
     end
+
     it "requests the correct resource" do
       @client.calendar
       expect(a_get("/v1/markets/calendar")).to have_been_made
     end
+
     it "returns a calendar object" do
       calendar = @client.calendar
       expect(calendar).to be_a Tradier::Calendar
@@ -159,10 +204,14 @@ describe Tradier::API::Markets do
         with(:query => { :symbol => 'AAPL' }).
         to_return(:body => fixture("timesales.json"), :headers => {:content_type => "application/json; charset=utf-8"})
     end
+
     it "requests the correct resource" do
       @client.timesales('AAPL')
-      expect(a_get("/v1/markets/timesales").with(:query => { :symbol => 'AAPL' })).to have_been_made
+
+      expect(a_get("/v1/markets/timesales").
+        with(:query => { :symbol => 'AAPL' })).to have_been_made
     end
+
     it "returns an array of Tradier::Timesales objects" do
       timesales = @client.timesales('AAPL')
       expect(timesales).to be_an Array
@@ -176,15 +225,17 @@ describe Tradier::API::Markets do
         with(:query => { :symbol => 'AAPL' }).
         to_return(:body => fixture("history.json"), :headers => {:content_type => "application/json; charset=utf-8"})
     end
+
     it "requests the correct resource" do
       @client.history('AAPL')
-      expect(a_get("/v1/markets/history").with(:query => { :symbol => 'AAPL' })).to have_been_made
+      expect(a_get("/v1/markets/history").
+        with(:query => { :symbol => 'AAPL' })).to have_been_made
     end
+
     it "returns an array of Tradier::History objects" do
       history = @client.history('AAPL')
       expect(history).to be_an Array
       expect(history.first).to be_a Tradier::History
     end
   end
-
 end
