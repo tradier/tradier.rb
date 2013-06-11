@@ -1,3 +1,5 @@
+require 'tradier/base'
+
 module Tradier
   class OptionQuote < Base
 

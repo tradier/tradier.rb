@@ -1,5 +1,7 @@
 require 'tradier/quote'
 require 'tradier/option_quote'
+require 'tradier/balance'
+require 'tradier/position'
 
 module Tradier
   module API

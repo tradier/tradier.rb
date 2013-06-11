@@ -107,4 +107,20 @@ describe Tradier::API::Markets do
     end
   end
 
+  describe "#option_quotes" do
+    before do
+      stub_get("/v1/markets/options/quotes").with(:query => {:symbols => "AAPL150117C00440000,AAPL150117C00395000"}).to_return(:body => fixture("option_quotes.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+    end
+    it "requests the correct resource" do
+      @client.option_quotes("AAPL150117C00440000,AAPL150117C00395000")
+      expect(a_get("/v1/markets/options/quotes").with(:query => {:symbols => "AAPL150117C00440000,AAPL150117C00395000"})).to have_been_made
+    end
+    it "returns an array of option quotes" do
+      quotes = @client.option_quotes("AAPL150117C00440000,AAPL150117C00395000")
+      expect(quotes).to be_an Array
+      expect(quotes.size).to eq(2)
+      expect(quotes.first).to be_a Tradier::OptionQuote
+    end
+  end
+
 end
