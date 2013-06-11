@@ -14,7 +14,7 @@ module Tradier
       # @return [Array]
       def quote_objects_from_response(klass, request_method, path, options={})
         response_body = send(request_method.to_sym, path, options)[:body]
-        quote_objects_from_array(klass, response_body[:QuoteList])
+        quote_objects_from_array(klass, response_body[:quotes][:quote])
       end
 
       # @param klass [Class]
@@ -23,10 +23,10 @@ module Tradier
       def quote_objects_from_array(klass, response)
         if response.is_a?(Array)
           response.map do |element|
-            klass.new(element[:Quote])
+            klass.new(element)
           end
         else
-          [klass.new(response[:Quote])]
+          [klass.new(response)]
         end
       end
 

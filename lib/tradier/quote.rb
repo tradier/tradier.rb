@@ -2,10 +2,7 @@ require 'tradier/base'
 
 module Tradier
   class Quote < Tradier::Base
-
-    def symbol
-      @attrs[:VenSymbol]
-    end
+    attr_reader :symbol
 
     def ==(quote)
       self.symbol == quote.symbol

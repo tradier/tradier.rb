@@ -1,1 +1,45 @@
-{"QuoteList":{"Quote":{"TradeDateTime":"2013-06-03T15:32:06-04:00","BidDateTime":"2013-06-03T15:32:08-04:00","AskDateTime":"2013-06-03T15:32:00-04:00","BateDateTime":"2013-06-03T15:32:08-04:00","LastBidAsk":448.53,"LbaChange":-1.205,"Latest":448.53,"Recent":448.68,"Previous":449.735,"Open":450.73,"High":452.36,"Low":442.48,"Volume":13725006,"LastVolume":100,"CumVolume":11715611,"OpenInterest":0,"Bid":448.53,"Ask":448.69,"First":450.73,"Last":448.68,"BidSize":1,"AskSize":5,"TradeCount":63975,"TradeCondition":0,"MarketCondition":0,"BateCodeLast":2,"BateCodeOpen":0,"BateCodeHigh":0,"BateCodeLow":0,"BateCodeClose":0,"BateCodeOpen2":0,"BateCodeClose2":0,"Direction":0,"Fraction":4,"FractionVen":21,"FractionDsp":4,"DaysToExpiration":0,"PermCode2":14,"SymType":"Equity.Share.Single.None","Change":-1.055,"Market":14,"Week52High":705.07,"Week52Low":385.1,"Wk52HighDate":"2012-09-21","Week52LowDate":"2013-04-19","XchgId":67,"SrcIdn":0,"ExercisePrice":0.0,"TKRSecurityType":1,"TKRListedMarket":67,"TKRSession":3,"TKRLastMessageType":13,"TKRBidMarket":14,"TKRAskMarket":1,"TKRQuoteCondition":0,"VenSymbol":"AAPL","TKRLastMarket":14,"PreviousPrevious":449.735,"IssueDescription":"APPLE","AverageVolume":15338070,"YTDHighPrice":555.0,"YTDHighDate":"2013-01-02","YTDLowPrice":385.1,"YTDLowDate":"2013-04-19","YearEndClose":532.173,"Volatility":24.2199993134,"LastSplitDate":"2005-02-28","LastSplitFactor":0.5,"PrevSplitDate":"2000-06-21","PrevSplitFactor":0.5,"UPC11830":0,"ExtendedLast":450.5,"EODLastRun":"2013-05-31T16:59:04-04:00","Vendor":"TK02","QuoteDelay":0,"OneDigitYearSymbol":"AAPL"}}}
+{
+  "quotes": {
+    "quote": {
+      "symbol": "AAPL",
+      "trade_date": "2013-06-10T16:00:00-04:00",
+      "bid_date": "2013-06-10T16:34:58-04:00",
+      "ask_date": "2013-06-10T16:34:26-04:00",
+      "open": 444.73,
+      "high": 449.079,
+      "low": 436.8,
+      "close": 438.89,
+      "volume": 14455098,
+      "last_volume": 0,
+      "cvolume": 15991941,
+      "open_interest": 0,
+      "bid": 438.63,
+      "ask": 438.66,
+      "last": 438.89,
+      "bidsize": 2,
+      "asksize": 1,
+      "trade_count": 90470,
+      "trade_condition": 0,
+      "market_condition": 0,
+      "direction": 0,
+      "days_to_expiration": 0,
+      "change": -2.921,
+      "week_52_high": 705.07,
+      "week_52_low": 385.1,
+      "week_52_low_date": "2013-04-19",
+      "week_52_high_date": "2012-09-21",
+      "exercise_price": 0.0,
+      "average_volume": 14569075,
+      "ytd_high": 555.0,
+      "ytd_low": 385.1,
+      "ytd_high_date": "2013-01-02",
+      "ytd_low_date": "2013-04-19",
+      "volatility": 24.1669998169,
+      "last_split_date": "2005-02-28",
+      "last_split_factor": 0.5,
+      "delay": 0,
+      "exch": 14,
+      "description": "APPLE"
+    }
+  }
+}
