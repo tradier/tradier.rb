@@ -23,6 +23,15 @@ module Tradier
       end
       alias position positions
 
+      def orders(account_number=nil)
+        if account_number
+          order_objects_from_response(Tradier::Order, :get, "/accounts/#{account_number}/orders")
+        else
+          collection_objects_from_response(Tradier::OrderCollection, :get, '/user/orders')
+        end
+      end
+      alias position positions
+
     end
   end
 end

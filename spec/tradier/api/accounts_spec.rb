@@ -73,4 +73,38 @@ describe Tradier::API::Accounts do
     end
   end
 
+  describe '#orders' do
+    context 'when passed an account number' do
+      before do
+        stub_get("/v1/accounts/123456789/orders").
+          to_return(:body => fixture("account_orders.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      end
+      it "requests the correct resource" do
+        @client.orders("123456789")
+        expect(a_get("/v1/accounts/123456789/orders")).to have_been_made
+      end
+      it "returns a Tradier::Position" do
+        orders = @client.orders("123456789")
+        expect(orders).to be_an Array
+        expect(orders.first).to be_a Tradier::Order
+      end
+    end
+    # context 'when no account number' do
+    #   before do
+    #     stub_get("/v1/user/orders").
+    #       to_return(:body => fixture("user_orders.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+    #   end
+    #   it "requests the correct resource" do
+    #     @client.orders
+    #     expect(a_get("/v1/user/orders")).to have_been_made
+    #   end
+    #   it "returns an array of Tradier::Order" do
+    #     orders = @client.orders
+    #     expect(orders).to be_an Array
+    #     expect(orders.first).to be_a Tradier::PositionCollection
+    #     expect(orders.first.first).to be_a Tradier::Position
+    #   end
+    # end
+  end
+
 end
