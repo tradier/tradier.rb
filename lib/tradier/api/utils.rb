@@ -96,7 +96,7 @@ module Tradier
 
       def balance_object_from_response(klass, request_method, path, options={})
         response_body = send(request_method.to_sym, path, options)[:body]
-        klass.new(response_body[:balance])
+        klass.new(response_body[:balances][:balance])
       end
 
       # @param klass [Class]
