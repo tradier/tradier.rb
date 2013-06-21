@@ -9,7 +9,7 @@ module Tradier
         if account_number
           balance_object_from_response(Tradier::Balance, :get, "/accounts/#{account_number}/balances")
         else
-          balance_objects_from_response(Tradier::Balance, :get, "/user/balances")
+          collection_objects_from_response(Tradier::BalanceCollection, :get, "/user/balances")
         end
       end
       alias balance balances
@@ -18,7 +18,7 @@ module Tradier
         if account_number
           position_objects_from_response(Tradier::Position, :get, "/accounts/#{account_number}/positions")
         else
-          position_collection_objects_from_response(Tradier::PositionCollection, :get, '/user/positions')
+          collection_objects_from_response(Tradier::PositionCollection, :get, '/user/positions')
         end
       end
       alias position positions

@@ -1,4 +1,5 @@
 require 'tradier/balance'
+require 'tradier/balance_collection'
 require 'tradier/calendar'
 require 'tradier/clock'
 require 'tradier/history'
@@ -108,7 +109,7 @@ module Tradier
         objects_from_array(klass, response_body[:positions][:position])
       end
 
-      def position_collection_objects_from_response(klass, request_method, path, options={})
+      def collection_objects_from_response(klass, request_method, path, options={})
         response_body = send(request_method.to_sym, path, options)[:body]
         objects_from_array(klass, response_body[:accounts][:account])
       end

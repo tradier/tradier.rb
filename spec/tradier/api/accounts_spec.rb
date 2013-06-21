@@ -33,7 +33,8 @@ describe Tradier::API::Accounts do
       it "returns an array of Tradier::Balance objects" do
         balances = @client.balances
         expect(balances).to be_an Array
-        expect(balances.first).to be_a Tradier::Balance
+        expect(balances.first).to be_a Tradier::BalanceCollection
+        expect(balances.first.first).to be_a Tradier::Balance
       end
     end
   end
