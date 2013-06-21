@@ -38,4 +38,38 @@ describe Tradier::API::Accounts do
     end
   end
 
+  describe '#positions' do
+    context 'when passed an account number' do
+      before do
+        stub_get("/v1/accounts/123456789/positions").
+          to_return(:body => fixture("account_positions.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      end
+      it "requests the correct resource" do
+        @client.positions("123456789")
+        expect(a_get("/v1/accounts/123456789/positions")).to have_been_made
+      end
+      it "returns a Tradier::Position" do
+        positions = @client.positions("123456789")
+        expect(positions).to be_an Array
+        expect(positions.first).to be_a Tradier::Position
+      end
+    end
+    context 'when no account number' do
+      before do
+        stub_get("/v1/user/positions").
+          to_return(:body => fixture("user_positions.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      end
+      it "requests the correct resource" do
+        @client.positions
+        expect(a_get("/v1/user/positions")).to have_been_made
+      end
+      it "returns an array of Tradier::Position" do
+        positions = @client.positions
+        expect(positions).to be_an Array
+        expect(positions.first).to be_a Tradier::PositionCollection
+        expect(positions.first.first).to be_a Tradier::Position
+      end
+    end
+  end
+
 end

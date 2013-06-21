@@ -3,6 +3,8 @@ require 'tradier/calendar'
 require 'tradier/clock'
 require 'tradier/history'
 require 'tradier/option_quote'
+require 'tradier/position'
+require 'tradier/position_collection'
 require 'tradier/quote'
 require 'tradier/timesales'
 
@@ -94,6 +96,21 @@ module Tradier
       def balance_object_from_response(klass, request_method, path, options={})
         response_body = send(request_method.to_sym, path, options)[:body]
         klass.new(response_body[:balance])
+      end
+
+      # @param klass [Class]
+      # @param request_method [Symbol]
+      # @param path [String]
+      # @param options [Hash]
+      # @return [Array]
+      def position_objects_from_response(klass, request_method, path, options={})
+        response_body = send(request_method.to_sym, path, options)[:body]
+        objects_from_array(klass, response_body[:positions][:position])
+      end
+
+      def position_collection_objects_from_response(klass, request_method, path, options={})
+        response_body = send(request_method.to_sym, path, options)[:body]
+        objects_from_array(klass, response_body[:accounts][:account])
       end
 
       def object_from_response(klass, request_method, path, options)
