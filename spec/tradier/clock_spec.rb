@@ -18,7 +18,7 @@ describe Tradier::Clock do
     it "returns the timestamp when set" do
       clock = Tradier::Clock.new({ :timestamp => 1372103978 })
       expect(clock.time).to be_a Time
-      expect(clock.time.to_s).to eq('2013-06-24 15:59:38 -0400')
+      expect(clock.time.utc.to_s).to eq('2013-06-24 19:59:38 UTC')
     end
     it "returns nil when symbol is not set" do
       clock = Tradier::Clock.new('clock' => {})
