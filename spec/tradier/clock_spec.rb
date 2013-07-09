@@ -8,7 +8,7 @@ describe Tradier::Clock do
       expect(clock.date).to be_a Date
       expect(clock.date.to_s).to eq('2013-07-04')
     end
-    it "returns nil when symbol is not set" do
+    it "returns nil when date is not set" do
       clock = Tradier::Clock.new('clock' => {})
       expect(clock.date).to be_nil
     end
@@ -20,7 +20,7 @@ describe Tradier::Clock do
       expect(clock.time).to be_a Time
       expect(clock.time.utc.to_s).to eq('2013-06-24 19:59:38 UTC')
     end
-    it "returns nil when symbol is not set" do
+    it "returns nil when time is not set" do
       clock = Tradier::Clock.new('clock' => {})
       expect(clock.time).to be_nil
     end
@@ -31,7 +31,7 @@ describe Tradier::Clock do
       clock = Tradier::Clock.new({ :description => 'Market is closed.' })
       expect(clock.description).to eq('Market is closed.')
     end
-    it "returns nil when symbol is not set" do
+    it "returns nil when description is not set" do
       clock = Tradier::Clock.new('clock' => {})
       expect(clock.description).to be_nil
     end
@@ -42,7 +42,7 @@ describe Tradier::Clock do
       clock = Tradier::Clock.new({ :next_change => '08:00' })
       expect(clock.next_change).to eq('08:00')
     end
-    it "returns nil when symbol is not set" do
+    it "returns nil when next_change is not set" do
       clock = Tradier::Clock.new('clock' => {})
       expect(clock.next_change).to be_nil
     end
@@ -53,7 +53,7 @@ describe Tradier::Clock do
       clock = Tradier::Clock.new({ :next_state => 'premarket' })
       expect(clock.next_state).to eq('premarket')
     end
-    it "returns nil when symbol is not set" do
+    it "returns nil when next_state is not set" do
       clock = Tradier::Clock.new('clock' => {})
       expect(clock.next_state).to be_nil
     end
@@ -64,7 +64,7 @@ describe Tradier::Clock do
       clock = Tradier::Clock.new({ :state => 'closed' })
       expect(clock.state).to eq('closed')
     end
-    it "returns nil when symbol is not set" do
+    it "returns nil when state is not set" do
       clock = Tradier::Clock.new('clock' => {})
       expect(clock.state).to be_nil
     end
