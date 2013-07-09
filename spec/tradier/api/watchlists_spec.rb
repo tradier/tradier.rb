@@ -42,4 +42,38 @@ describe Tradier::API::Watchlists do
     end
   end
 
+  describe "#delete_watchlist" do
+    before do
+      stub_delete("/v1/watchlists/default").
+        to_return(:body => '', :headers => {:content_type => "application/json; charset=utf-8"})
+    end
+
+    it "requests the correct resource" do
+      @client.delete_watchlist('default')
+      expect(a_delete("/v1/watchlists/default")).to have_been_made
+    end
+
+    it "returns a 'Tradier::Watchlist' object" do
+      status = @client.delete_watchlist('default')
+      expect(status).to be_true
+    end
+  end
+
+  describe "#create_watchlist" do
+    before do
+      stub_post("/v1/watchlists").
+        to_return(:body => fixture('watchlist.json'), :headers => {:content_type => "application/json; charset=utf-8"})
+    end
+
+    it "requests the correct resource" do
+      @client.create_watchlist(:name => 'default')
+      expect(a_post("/v1/watchlists")).to have_been_made
+    end
+
+    it "returns a 'Tradier::Watchlist' object" do
+      status = @client.create_watchlist(:name => 'default')
+      expect(status).to be_true
+    end
+  end
+
 end
