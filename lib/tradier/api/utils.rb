@@ -9,6 +9,7 @@ require 'tradier/position'
 require 'tradier/position_collection'
 require 'tradier/quote'
 require 'tradier/timesales'
+require 'tradier/watchlist'
 
 module Tradier
   module API
@@ -128,6 +129,11 @@ module Tradier
       def object_from_response(klass, request_method, path, options)
         response_body = send(request_method.to_sym, path, options)[:body]
         klass.new(response_body)
+      end
+
+      def watchlist_objects_from_response(klass, request_method, path, options)
+        response_body = send(request_method.to_sym, path, options)[:body]
+        objects_from_array(klass, response_body[:watchlists][:watchlist])
       end
 
       # @param klass [Class]
