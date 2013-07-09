@@ -25,4 +25,21 @@ describe Tradier::API::Watchlists do
     end
   end
 
+  describe "#watchlist" do
+    before do
+      stub_get("/v1/watchlists/default").
+        to_return(:body => fixture("watchlist.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+    end
+
+    it "requests the correct resource" do
+      @client.watchlist('default')
+      expect(a_get("/v1/watchlists/default")).to have_been_made
+    end
+
+    it "returns a 'Tradier::Watchlist' object" do
+      watchlist = @client.watchlist('default')
+      expect(watchlist).to be_a Tradier::Watchlist
+    end
+  end
+
 end
