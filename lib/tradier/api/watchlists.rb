@@ -25,6 +25,24 @@ module Tradier
         watchlist_object_from_response(Tradier::Watchlist, :put, "/watchlists/#{id}", options)
       end
 
+      def watchlist_item(id, symbol, options={})
+        watchlist_item_object_from_response(Tradier::WatchlistItem, :get, "/watchlists/#{id}/symbols/#{symbol}", options)
+      end
+
+      def add_watchlist_item(id, options={})
+        watchlist_item_object_from_response(Tradier::WatchlistItem, :post, "/watchlists/#{id}/symbols", options)
+      end
+      alias create_watchlist_item add_watchlist_item
+
+      def remove_watchlist_item(id, symbol, options={})
+        send(:delete, "/watchlists/#{id}/symbols/#{symbol}", options)[:status] == 200
+      end
+      alias delete_watchlist_item remove_watchlist_item
+
+      def update_watchlist_item(id, symbol, options={})
+        watchlist_item_object_from_response(Tradier::WatchlistItem, :put, "/watchlists/#{id}/symbols/#{symbol}", options)
+      end
+
     end
   end
 end

@@ -72,7 +72,7 @@ describe Tradier::API::Watchlists do
 
     it "returns a 'Tradier::Watchlist' object" do
       status = @client.create_watchlist(:name => 'default')
-      expect(status).to be_true
+      expect(status).to be_a Tradier::Watchlist
     end
   end
 
@@ -89,7 +89,75 @@ describe Tradier::API::Watchlists do
 
     it "returns a 'Tradier::Watchlist' object" do
       status = @client.update_watchlist('default', :symbols => 'AAPL,GOOG')
+      expect(status).to be_a Tradier::Watchlist
+    end
+  end
+
+  describe '#watchlist_item' do
+    before do
+      stub_get("/v1/watchlists/default/symbols/aapl").
+        to_return(:body => fixture('watchlist_item.json'), :headers => {:content_type => "application/json; charset=utf-8"})
+    end
+
+    it "requests the correct resource" do
+      @client.watchlist_item('default', 'aapl')
+      expect(a_get("/v1/watchlists/default/symbols/aapl")).to have_been_made
+    end
+
+    it "returns a 'Tradier::WatchlistItem' object" do
+      status = @client.watchlist_item('default', 'aapl')
+      expect(status).to be_a Tradier::WatchlistItem
+    end
+  end
+
+  describe '#add_watchlist_item' do
+    before do
+      stub_post("/v1/watchlists/default/symbols").
+        to_return(:body => fixture('watchlist_item.json'), :headers => {:content_type => "application/json; charset=utf-8"})
+    end
+
+    it "requests the correct resource" do
+      @client.add_watchlist_item('default', :symbols => 'aapl')
+      expect(a_post("/v1/watchlists/default/symbols")).to have_been_made
+    end
+
+    it "returns a 'Tradier::Watchlist' object" do
+      status = @client.add_watchlist_item('default', :symbols => 'aapl')
+      expect(status).to be_a Tradier::WatchlistItem
+    end
+  end
+
+  describe '#remove_watchlist_item' do
+    before do
+      stub_delete("/v1/watchlists/default/symbols/aapl").
+        to_return(:headers => {:content_type => "application/json; charset=utf-8"})
+    end
+
+    it "requests the correct resource" do
+      @client.remove_watchlist_item('default', 'aapl')
+      expect(a_delete("/v1/watchlists/default/symbols/aapl")).to have_been_made
+    end
+
+    it "returns a 'Tradier::WatchlistItem' object" do
+      status = @client.remove_watchlist_item('default', 'aapl')
       expect(status).to be_true
+    end
+  end
+
+  describe '#update_watchlist_item' do
+    before do
+      stub_put("/v1/watchlists/default/symbols/aapl").
+        to_return(:body => fixture('watchlist_item.json'), :headers => {:content_type => "application/json; charset=utf-8"})
+    end
+
+    it "requests the correct resource" do
+      @client.update_watchlist_item('default', 'aapl', :shares => 100)
+      expect(a_put("/v1/watchlists/default/symbols/aapl")).to have_been_made
+    end
+
+    it "returns a 'Tradier::Watchlist' object" do
+      status = @client.update_watchlist_item('default', 'aapl', :shares => 100)
+      expect(status).to be_a Tradier::WatchlistItem
     end
   end
 

@@ -141,6 +141,11 @@ module Tradier
         klass.new(response_body[:watchlist])
       end
 
+      def watchlist_item_object_from_response(klass, request_method, path, options={})
+        response_body = send(request_method.to_sym, path, options)[:body]
+        klass.new(response_body[:item])
+      end
+
       # @param klass [Class]
       # @param array [Array]
       # @return [Array]
