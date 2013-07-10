@@ -66,7 +66,7 @@ module Tradier
       credentials.each do |credential, value|
         next if value.nil?
 
-        unless value.is_a?(String) || value.is_a?(Symbol)
+        unless value.is_a?(String) || value.is_a?(::Symbol)
           raise(Error::ConfigurationError, "Invalid #{credential} specified: #{value} must be a string or symbol.")
         end
       end
