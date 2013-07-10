@@ -76,4 +76,21 @@ describe Tradier::API::Watchlists do
     end
   end
 
+  describe "#update_watchlist" do
+    before do
+      stub_put("/v1/watchlists/default").
+        to_return(:body => fixture('watchlist.json'), :headers => {:content_type => "application/json; charset=utf-8"})
+    end
+
+    it "requests the correct resource" do
+      @client.update_watchlist('default', :symbols => 'AAPL,GOOG')
+      expect(a_put("/v1/watchlists/default")).to have_been_made
+    end
+
+    it "returns a 'Tradier::Watchlist' object" do
+      status = @client.update_watchlist('default', :symbols => 'AAPL,GOOG')
+      expect(status).to be_true
+    end
+  end
+
 end

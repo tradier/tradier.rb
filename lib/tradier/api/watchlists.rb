@@ -21,6 +21,10 @@ module Tradier
         watchlist_object_from_response(Tradier::Watchlist, :post, '/watchlists', options)
       end
 
+      def update_watchlist(id, options={})
+        watchlist_object_from_response(Tradier::Watchlist, :put, "/watchlists/#{id}", options)
+      end
+
     end
   end
 end
