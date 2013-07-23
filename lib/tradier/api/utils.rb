@@ -26,8 +26,7 @@ module Tradier
       # @param options [Hash]
       # @return [Array]
       def quote_objects_from_response(klass, request_method, path, options={})
-        response_body = send(request_method.to_sym, path, options)[:body]
-        objects_from_array(klass, response_body[:quotes][:quote])
+        nested_objects_from_response(klass, request_method, path, [:quotes, :quote], options)
       end
 
       # @param klass [Class]
@@ -36,8 +35,7 @@ module Tradier
       # @param options [Hash]
       # @return [Array]
       def option_quote_objects_from_response(klass, request_method, path, options={})
-        response_body = send(request_method.to_sym, path, options)[:body]
-        objects_from_array(klass, response_body[:options][:option])
+        nested_objects_from_response(klass, request_method, path, [:options, :option], options)
       end
 
       # @param klass [Class]
@@ -75,8 +73,7 @@ module Tradier
       # @param options [Hash]
       # @return [Array]
       def timesales_objects_from_response(klass, request_method, path, options={})
-        response_body = send(request_method.to_sym, path, options)[:body]
-        objects_from_array(klass, response_body[:series][:data])
+        nested_objects_from_response(klass, request_method, path, [:series, :data], options)
       end
 
       # @param klass [Class]
@@ -85,8 +82,7 @@ module Tradier
       # @param options [Hash]
       # @return [Array]
       def history_objects_from_response(klass, request_method, path, options={})
-        response_body = send(request_method.to_sym, path, options)[:body]
-        objects_from_array(klass, response_body[:history][:day])
+        nested_objects_from_response(klass, request_method, path, [:history, :day], options)
       end
 
       # @param klass [Class]
@@ -95,8 +91,7 @@ module Tradier
       # @param options [Hash]
       # @return [Array]
       def balance_objects_from_response(klass, request_method, path, options={})
-        response_body = send(request_method.to_sym, path, options)[:body]
-        objects_from_array(klass, response_body[:balances][:balance])
+        nested_objects_from_response(klass, request_method, path, [:balances, :balance], options)
       end
 
       def balance_object_from_response(klass, request_method, path, options={})
@@ -110,8 +105,7 @@ module Tradier
       # @param options [Hash]
       # @return [Array]
       def position_objects_from_response(klass, request_method, path, options={})
-        response_body = send(request_method.to_sym, path, options)[:body]
-        objects_from_array(klass, response_body[:positions][:position])
+        nested_objects_from_response(klass, request_method, path, [:positions, :position], options)
       end
 
       # @param klass [Class]
@@ -120,8 +114,7 @@ module Tradier
       # @param options [Hash]
       # @return [Array]
       def closed_position_objects_from_response(klass, request_method, path, options={})
-        response_body = send(request_method.to_sym, path, options)[:body]
-        objects_from_array(klass, response_body[:gainloss][:closed_position])
+        nested_objects_from_response(klass, request_method, path, [:gainloss, :closed_position], options)
       end
 
       # @param klass [Class]
@@ -130,33 +123,38 @@ module Tradier
       # @param options [Hash]
       # @return [Array]
       def order_objects_from_response(klass, request_method, path, options={})
-        response_body = send(request_method.to_sym, path, options)[:body]
-        objects_from_array(klass, response_body[:orders][:order])
+        nested_objects_from_response(klass, request_method, path, [:orders, :order], options)
       end
 
       def collection_objects_from_response(klass, request_method, path, options={})
+        nested_objects_from_response(klass, request_method, path, [:accounts, :account], options)
+      end
+
+      def watchlist_objects_from_response(klass, request_method, path, options)
+        nested_objects_from_response(klass, request_method, path, [:watchlists, :watchlist], options)
+      end
+
+      def watchlist_object_from_response(klass, request_method, path, options={})
+        nested_object_from_response(klass, request_method, path, [:watchlist], options)
+      end
+
+      def watchlist_item_object_from_response(klass, request_method, path, options={})
+        nested_object_from_response(klass, request_method, path, [:item], options)
+      end
+
+      def nested_object_from_response(klass, request_method, path, body_path, options={})
         response_body = send(request_method.to_sym, path, options)[:body]
-        objects_from_array(klass, response_body[:accounts][:account])
+        klass.new(nested_response_body(response_body, body_path))
+      end
+
+      def nested_objects_from_response(klass, request_method, path, body_path, options={})
+        response_body = send(request_method.to_sym, path, options)[:body]
+        objects_from_array(klass, nested_response_body(response_body, body_path))
       end
 
       def object_from_response(klass, request_method, path, options)
         response_body = send(request_method.to_sym, path, options)[:body]
         klass.new(response_body)
-      end
-
-      def watchlist_objects_from_response(klass, request_method, path, options)
-        response_body = send(request_method.to_sym, path, options)[:body]
-        objects_from_array(klass, response_body[:watchlists][:watchlist])
-      end
-
-      def watchlist_object_from_response(klass, request_method, path, options={})
-        response_body = send(request_method.to_sym, path, options)[:body]
-        klass.new(response_body[:watchlist])
-      end
-
-      def watchlist_item_object_from_response(klass, request_method, path, options={})
-        response_body = send(request_method.to_sym, path, options)[:body]
-        klass.new(response_body[:item])
       end
 
       # @param klass [Class]
@@ -170,6 +168,14 @@ module Tradier
         else
           [klass.new(response)]
         end
+      end
+
+      def nested_response_body(body, path)
+        path.each do |p|
+          body = body[p]
+        end
+
+        body
       end
 
     end
