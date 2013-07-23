@@ -124,4 +124,38 @@ describe Tradier::API::Accounts do
     # end
   end
 
+  describe '#gainloss' do
+    context 'when passed an account number' do
+      before do
+        stub_get("/v1/accounts/123456789/gainloss").
+          to_return(:body => fixture("account_gainloss.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      end
+      it "requests the correct resource" do
+        @client.gainloss("123456789")
+        expect(a_get("/v1/accounts/123456789/gainloss")).to have_been_made
+      end
+      it "returns an array of Tradier::Position" do
+        gainloss = @client.gainloss("123456789")
+        expect(gainloss).to be_an Array
+        expect(gainloss.first).to be_a Tradier::Position
+      end
+    end
+    context 'when no account number' do
+      before do
+        stub_get("/v1/user/gainloss").
+          to_return(:body => fixture("user_gainloss.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      end
+      it "requests the correct resource" do
+        @client.gainloss
+        expect(a_get("/v1/user/gainloss")).to have_been_made
+      end
+      it "returns an array of Tradier::Position" do
+        gainloss = @client.gainloss
+        expect(gainloss).to be_an Array
+        expect(gainloss.first).to be_a Tradier::GainlossCollection
+        expect(gainloss.first.first).to be_a Tradier::Position
+      end
+    end
+  end
+
 end

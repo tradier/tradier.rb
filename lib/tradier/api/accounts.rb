@@ -36,6 +36,14 @@ module Tradier
         end
       end
 
+      def gainloss(account_number=nil)
+        if account_number
+          closed_position_objects_from_response(Tradier::Position, :get, "/accounts/#{account_number}/gainloss")
+        else
+          collection_objects_from_response(Tradier::GainlossCollection, :get, '/user/gainloss')
+        end
+      end
+
     end
   end
 end
