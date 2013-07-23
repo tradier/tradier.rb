@@ -5,6 +5,11 @@ module Tradier
     module Accounts
       include Tradier::API::Utils
 
+      def profile
+        object_from_response(Tradier::Profile, :get, '/user/profile', {})
+      end
+      alias user_profile profile
+
       def balances(account_number=nil)
         if account_number
           balance_object_from_response(Tradier::Balance, :get, "/accounts/#{account_number}/balances")
@@ -30,7 +35,6 @@ module Tradier
           collection_objects_from_response(Tradier::OrderCollection, :get, '/user/orders')
         end
       end
-      alias position positions
 
     end
   end

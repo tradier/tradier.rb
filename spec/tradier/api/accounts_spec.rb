@@ -6,6 +6,23 @@ describe Tradier::API::Accounts do
     @client = Tradier::Client.new
   end
 
+  describe '#profile' do
+    context 'when passed an account number' do
+      before do
+        stub_get("/v1/user/profile").
+          to_return(:body => fixture("user_profile.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      end
+      it "requests the correct resource" do
+        @client.profile
+        expect(a_get("/v1/user/profile")).to have_been_made
+      end
+      it "returns a Tradier::Profile" do
+        profile = @client.profile
+        expect(profile).to be_a Tradier::Profile
+      end
+    end
+  end
+
   describe '#balances' do
     context 'when passed an account number' do
       before do
