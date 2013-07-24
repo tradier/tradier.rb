@@ -4,7 +4,6 @@ require 'multi_json'
 require 'tradier/api/accounts'
 require 'tradier/api/markets'
 require 'tradier/api/watchlists'
-require 'tradier/api/enhancements'
 require 'tradier/configurable'
 require 'tradier/error/client_error'
 require 'tradier/error/decode_error'
@@ -15,7 +14,6 @@ module Tradier
     include Tradier::API::Accounts
     include Tradier::API::Markets
     include Tradier::API::Watchlists
-    include Tradier::API::Enhancements
     include Tradier::Configurable
 
     # Initializes a new Client object

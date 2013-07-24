@@ -25,13 +25,6 @@ module Tradier
         strike_objects_from_response(:get, '/markets/options/strikes', :symbol => symbol)
       end
 
-      def option_quotes(symbols, options={})
-        options.merge!('symbols' => normalized_symbols(symbols))
-        quote_objects_from_response(Tradier::OptionQuote, :get, '/markets/options/quotes', options)
-      end
-      alias option_quote option_quotes
-      alias options_quotes option_quotes
-
       def clock(options={})
         object_from_response(Tradier::Clock, :get, '/markets/clock', options)
       end
