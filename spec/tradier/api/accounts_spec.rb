@@ -37,6 +37,11 @@ describe Tradier::API::Accounts do
         balance = @client.balances("123456789")
         expect(balance).to be_a Tradier::Balance
       end
+
+      it "has populated attributes" do
+        balance = @client.balances("123456789")
+        expect(balance.attrs).to_not be_nil
+      end
     end
     context 'when no account number' do
       before do

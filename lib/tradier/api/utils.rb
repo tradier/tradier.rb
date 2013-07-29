@@ -90,12 +90,8 @@ module Tradier
       # @param path [String]
       # @param options [Hash]
       # @return [Array]
-      def balance_objects_from_response(klass, request_method, path, options={})
-        nested_objects_from_response(klass, request_method, path, [:balances, :balance], options)
-      end
-
       def balance_object_from_response(klass, request_method, path, options={})
-        nested_object_from_response(klass, request_method, path, [:balances, :balance], options)
+        object_from_response(klass, request_method, path, options)
       end
 
       # @param klass [Class]
