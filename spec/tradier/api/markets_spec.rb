@@ -123,19 +123,19 @@ describe Tradier::API::Markets do
   describe "#strikes" do
     before do
       stub_get("/v1/markets/options/strikes").
-        with(:query => {:symbol => "AAPL"}).
+        with(:query => {:symbol => "AAPL", :expiration => "2013-11-16"}).
         to_return(:body => fixture("strikes.json"), :headers => {:content_type => "application/json; charset=utf-8"})
     end
 
     it "requests the correct resource" do
-      @client.strikes("AAPL")
+      @client.strikes("AAPL", "2013-11-16")
 
       expect(a_get("/v1/markets/options/strikes").
-        with(:query => {:symbol => "AAPL"})).to have_been_made
+        with(:query => {:symbol => "AAPL", :expiration => "2013-11-16"})).to have_been_made
     end
 
     it "returns an array of strikes" do
-      strikes = @client.strikes("AAPL")
+      strikes = @client.strikes("AAPL", "2013-11-16")
       expect(strikes).to be_an Array
       expect(strikes.size).to eq(167)
       expect(strikes.first).to be_a Float

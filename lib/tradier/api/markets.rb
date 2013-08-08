@@ -21,8 +21,8 @@ module Tradier
         expiration_objects_from_response(Date, :get, '/markets/options/expirations', :symbol => symbol)
       end
 
-      def strikes(symbol)
-        strike_objects_from_response(:get, '/markets/options/strikes', :symbol => symbol)
+      def strikes(symbol, expiration)
+        strike_objects_from_response(:get, '/markets/options/strikes', :symbol => symbol, :expiration => expiration)
       end
 
       def clock(options={})
