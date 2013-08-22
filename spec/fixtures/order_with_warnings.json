@@ -1,0 +1,17 @@
+{
+  "order": {
+    "errors": "You do not have enough buying power for this trade.",
+    "exec_inst": 0,
+    "extended_hours": false,
+    "quantity": 20,
+    "request_date": "2013-08-22T17:52:56.175Z",
+    "result": false,
+    "side": "Buy",
+    "status": "Bad Request",
+    "symbol": "AAPL",
+    "time_in_force": "Day",
+    "trailing_limit_type": 0,
+    "trailing_stop_type": 0,
+    "type": "Market"
+  }
+}

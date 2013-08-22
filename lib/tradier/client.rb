@@ -3,6 +3,7 @@ require 'faraday_middleware'
 require 'multi_json'
 require 'tradier/api/accounts'
 require 'tradier/api/markets'
+require 'tradier/api/orders'
 require 'tradier/api/watchlists'
 require 'tradier/configurable'
 require 'tradier/error/client_error'
@@ -13,6 +14,7 @@ module Tradier
   class Client
     include Tradier::API::Accounts
     include Tradier::API::Markets
+    include Tradier::API::Orders
     include Tradier::API::Watchlists
     include Tradier::Configurable
 
