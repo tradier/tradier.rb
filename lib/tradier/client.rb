@@ -46,7 +46,8 @@ module Tradier
       request(:put, path, params)
     end
 
-  private
+    private
+
     # Returns a proc that can be used to setup the Faraday::Request headers
     #
     # @param method [Symbol]
