@@ -1,1 +1,6 @@
-{"item":{"symbol":"msft","purchase-price":0.00}}
+{
+    "item": {
+        "purchase-price": 0.0,
+        "symbol": "msft"
+    }
+}

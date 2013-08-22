@@ -1,1 +1,30 @@
-{"watchlist":{"id":"default","name":"Default","items":{"item":[{"symbol":"aapl","purchase-price":0.00},{"symbol":"msft","purchase-price":0.00},{"symbol":"goog","purchase-price":0.00},{"symbol":"skul","purchase-price":0.00},{"symbol":"nflx","purchase-price":0.00}]}}}
+{
+    "watchlist": {
+        "id": "default",
+        "items": {
+            "item": [
+                {
+                    "purchase-price": 0.0,
+                    "symbol": "aapl"
+                },
+                {
+                    "purchase-price": 0.0,
+                    "symbol": "msft"
+                },
+                {
+                    "purchase-price": 0.0,
+                    "symbol": "goog"
+                },
+                {
+                    "purchase-price": 0.0,
+                    "symbol": "skul"
+                },
+                {
+                    "purchase-price": 0.0,
+                    "symbol": "nflx"
+                }
+            ]
+        },
+        "name": "Default"
+    }
+}

@@ -1,1 +1,26 @@
-{"quotes":{"quote":[{"symbol":"AAPL7150117C00430000","strike":430.000,"last":68.60,"bid":62.45,"ask":63.25,"change":5.36,"volume":2,"open_interest":103},{"symbol":"AAPL150117C00395000","strike":395.000,"last":83.70,"bid":79.40,"ask":80.05,"change":4.70,"volume":2,"open_interest":173}]}}
+{
+    "quotes": {
+        "quote": [
+            {
+                "ask": 63.25,
+                "bid": 62.450000000000003,
+                "change": 5.3600000000000003,
+                "last": 68.599999999999994,
+                "open_interest": 103,
+                "strike": 430.0,
+                "symbol": "AAPL7150117C00430000",
+                "volume": 2
+            },
+            {
+                "ask": 80.049999999999997,
+                "bid": 79.400000000000006,
+                "change": 4.7000000000000002,
+                "last": 83.700000000000003,
+                "open_interest": 173,
+                "strike": 395.0,
+                "symbol": "AAPL150117C00395000",
+                "volume": 2
+            }
+        ]
+    }
+}

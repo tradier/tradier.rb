@@ -12,7 +12,18 @@ module Tradier
     private
 
     def balances
-      @balances ||= @attrs[:balances][:balance].map { |b| Tradier::Balance.new(b) }
+      @balances ||= begin
+        if @attrs[:balances] == "null"
+          []
+        elsif @attrs[:balances].is_a?(Hash) && @attrs[:balances].has_key?(:balance) && @attrs[:balances][:balance].is_a?(Hash)
+          [Tradier::Balance.new(@attrs[:balances][:balance])]
+        elsif @attrs[:balances].is_a?(Hash)
+          [Tradier::Balance.new(@attrs[:balances])]
+        else
+          @attrs[:balances][:balance].map { |b| Tradier::Balance.new(b) }
+        end
+      end
+
     end
 
   end

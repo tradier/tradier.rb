@@ -1,1 +1,400 @@
-{"calendar":{"days":{"day":[{"date":"2013-06-01","status":"closed","description":"Market is closed"},{"date":"2013-06-02","status":"closed","description":"Market is closed"},{"date":"2013-06-03","status":"open","description":"Market is open","premarket":{"start":"08:00","end":"09:30"},"open":{"start":"09:30","end":"16:00"},"postmarket":{"start":"16:00","end":"20:00"}},{"date":"2013-06-04","status":"open","description":"Market is open","premarket":{"start":"08:00","end":"09:30"},"open":{"start":"09:30","end":"16:00"},"postmarket":{"start":"16:00","end":"20:00"}},{"date":"2013-06-05","status":"open","description":"Market is open","premarket":{"start":"08:00","end":"09:30"},"open":{"start":"09:30","end":"16:00"},"postmarket":{"start":"16:00","end":"20:00"}},{"date":"2013-06-06","status":"open","description":"Market is open","premarket":{"start":"08:00","end":"09:30"},"open":{"start":"09:30","end":"16:00"},"postmarket":{"start":"16:00","end":"20:00"}},{"date":"2013-06-07","status":"open","description":"Market is open","premarket":{"start":"08:00","end":"09:30"},"open":{"start":"09:30","end":"16:00"},"postmarket":{"start":"16:00","end":"20:00"}},{"date":"2013-06-08","status":"closed","description":"Market is closed"},{"date":"2013-06-09","status":"closed","description":"Market is closed"},{"date":"2013-06-10","status":"open","description":"Market is open","premarket":{"start":"08:00","end":"09:30"},"open":{"start":"09:30","end":"16:00"},"postmarket":{"start":"16:00","end":"20:00"}},{"date":"2013-06-11","status":"open","description":"Market is open","premarket":{"start":"08:00","end":"09:30"},"open":{"start":"09:30","end":"16:00"},"postmarket":{"start":"16:00","end":"20:00"}},{"date":"2013-06-12","status":"open","description":"Market is open","premarket":{"start":"08:00","end":"09:30"},"open":{"start":"09:30","end":"16:00"},"postmarket":{"start":"16:00","end":"20:00"}},{"date":"2013-06-13","status":"open","description":"Market is open","premarket":{"start":"08:00","end":"09:30"},"open":{"start":"09:30","end":"16:00"},"postmarket":{"start":"16:00","end":"20:00"}},{"date":"2013-06-14","status":"open","description":"Market is open","premarket":{"start":"08:00","end":"09:30"},"open":{"start":"09:30","end":"16:00"},"postmarket":{"start":"16:00","end":"20:00"}},{"date":"2013-06-15","status":"closed","description":"Market is closed"},{"date":"2013-06-16","status":"closed","description":"Market is closed"},{"date":"2013-06-17","status":"open","description":"Market is open","premarket":{"start":"08:00","end":"09:30"},"open":{"start":"09:30","end":"16:00"},"postmarket":{"start":"16:00","end":"20:00"}},{"date":"2013-06-18","status":"open","description":"Market is open","premarket":{"start":"08:00","end":"09:30"},"open":{"start":"09:30","end":"16:00"},"postmarket":{"start":"16:00","end":"20:00"}},{"date":"2013-06-19","status":"open","description":"Market is open","premarket":{"start":"08:00","end":"09:30"},"open":{"start":"09:30","end":"16:00"},"postmarket":{"start":"16:00","end":"20:00"}},{"date":"2013-06-20","status":"open","description":"Market is open","premarket":{"start":"08:00","end":"09:30"},"open":{"start":"09:30","end":"16:00"},"postmarket":{"start":"16:00","end":"20:00"}},{"date":"2013-06-21","status":"open","description":"Market is open","premarket":{"start":"08:00","end":"09:30"},"open":{"start":"09:30","end":"16:00"},"postmarket":{"start":"16:00","end":"20:00"}},{"date":"2013-06-22","status":"closed","description":"Market is closed"},{"date":"2013-06-23","status":"closed","description":"Market is closed"},{"date":"2013-06-24","status":"open","description":"Market is open","premarket":{"start":"08:00","end":"09:30"},"open":{"start":"09:30","end":"16:00"},"postmarket":{"start":"16:00","end":"20:00"}},{"date":"2013-06-25","status":"open","description":"Market is open","premarket":{"start":"08:00","end":"09:30"},"open":{"start":"09:30","end":"16:00"},"postmarket":{"start":"16:00","end":"20:00"}},{"date":"2013-06-26","status":"open","description":"Market is open","premarket":{"start":"08:00","end":"09:30"},"open":{"start":"09:30","end":"16:00"},"postmarket":{"start":"16:00","end":"20:00"}},{"date":"2013-06-27","status":"open","description":"Market is open","premarket":{"start":"08:00","end":"09:30"},"open":{"start":"09:30","end":"16:00"},"postmarket":{"start":"16:00","end":"20:00"}},{"date":"2013-06-28","status":"open","description":"Market is open","premarket":{"start":"08:00","end":"09:30"},"open":{"start":"09:30","end":"16:00"},"postmarket":{"start":"16:00","end":"20:00"}},{"date":"2013-06-29","status":"closed","description":"Market is closed"},{"date":"2013-06-30","status":"closed","description":"Market is closed"}]},"month":6,"year":2013}}
+{
+    "calendar": {
+        "days": {
+            "day": [
+                {
+                    "date": "2013-06-01",
+                    "description": "Market is closed",
+                    "status": "closed"
+                },
+                {
+                    "date": "2013-06-02",
+                    "description": "Market is closed",
+                    "status": "closed"
+                },
+                {
+                    "date": "2013-06-03",
+                    "description": "Market is open",
+                    "open": {
+                        "end": "16:00",
+                        "start": "09:30"
+                    },
+                    "postmarket": {
+                        "end": "20:00",
+                        "start": "16:00"
+                    },
+                    "premarket": {
+                        "end": "09:30",
+                        "start": "08:00"
+                    },
+                    "status": "open"
+                },
+                {
+                    "date": "2013-06-04",
+                    "description": "Market is open",
+                    "open": {
+                        "end": "16:00",
+                        "start": "09:30"
+                    },
+                    "postmarket": {
+                        "end": "20:00",
+                        "start": "16:00"
+                    },
+                    "premarket": {
+                        "end": "09:30",
+                        "start": "08:00"
+                    },
+                    "status": "open"
+                },
+                {
+                    "date": "2013-06-05",
+                    "description": "Market is open",
+                    "open": {
+                        "end": "16:00",
+                        "start": "09:30"
+                    },
+                    "postmarket": {
+                        "end": "20:00",
+                        "start": "16:00"
+                    },
+                    "premarket": {
+                        "end": "09:30",
+                        "start": "08:00"
+                    },
+                    "status": "open"
+                },
+                {
+                    "date": "2013-06-06",
+                    "description": "Market is open",
+                    "open": {
+                        "end": "16:00",
+                        "start": "09:30"
+                    },
+                    "postmarket": {
+                        "end": "20:00",
+                        "start": "16:00"
+                    },
+                    "premarket": {
+                        "end": "09:30",
+                        "start": "08:00"
+                    },
+                    "status": "open"
+                },
+                {
+                    "date": "2013-06-07",
+                    "description": "Market is open",
+                    "open": {
+                        "end": "16:00",
+                        "start": "09:30"
+                    },
+                    "postmarket": {
+                        "end": "20:00",
+                        "start": "16:00"
+                    },
+                    "premarket": {
+                        "end": "09:30",
+                        "start": "08:00"
+                    },
+                    "status": "open"
+                },
+                {
+                    "date": "2013-06-08",
+                    "description": "Market is closed",
+                    "status": "closed"
+                },
+                {
+                    "date": "2013-06-09",
+                    "description": "Market is closed",
+                    "status": "closed"
+                },
+                {
+                    "date": "2013-06-10",
+                    "description": "Market is open",
+                    "open": {
+                        "end": "16:00",
+                        "start": "09:30"
+                    },
+                    "postmarket": {
+                        "end": "20:00",
+                        "start": "16:00"
+                    },
+                    "premarket": {
+                        "end": "09:30",
+                        "start": "08:00"
+                    },
+                    "status": "open"
+                },
+                {
+                    "date": "2013-06-11",
+                    "description": "Market is open",
+                    "open": {
+                        "end": "16:00",
+                        "start": "09:30"
+                    },
+                    "postmarket": {
+                        "end": "20:00",
+                        "start": "16:00"
+                    },
+                    "premarket": {
+                        "end": "09:30",
+                        "start": "08:00"
+                    },
+                    "status": "open"
+                },
+                {
+                    "date": "2013-06-12",
+                    "description": "Market is open",
+                    "open": {
+                        "end": "16:00",
+                        "start": "09:30"
+                    },
+                    "postmarket": {
+                        "end": "20:00",
+                        "start": "16:00"
+                    },
+                    "premarket": {
+                        "end": "09:30",
+                        "start": "08:00"
+                    },
+                    "status": "open"
+                },
+                {
+                    "date": "2013-06-13",
+                    "description": "Market is open",
+                    "open": {
+                        "end": "16:00",
+                        "start": "09:30"
+                    },
+                    "postmarket": {
+                        "end": "20:00",
+                        "start": "16:00"
+                    },
+                    "premarket": {
+                        "end": "09:30",
+                        "start": "08:00"
+                    },
+                    "status": "open"
+                },
+                {
+                    "date": "2013-06-14",
+                    "description": "Market is open",
+                    "open": {
+                        "end": "16:00",
+                        "start": "09:30"
+                    },
+                    "postmarket": {
+                        "end": "20:00",
+                        "start": "16:00"
+                    },
+                    "premarket": {
+                        "end": "09:30",
+                        "start": "08:00"
+                    },
+                    "status": "open"
+                },
+                {
+                    "date": "2013-06-15",
+                    "description": "Market is closed",
+                    "status": "closed"
+                },
+                {
+                    "date": "2013-06-16",
+                    "description": "Market is closed",
+                    "status": "closed"
+                },
+                {
+                    "date": "2013-06-17",
+                    "description": "Market is open",
+                    "open": {
+                        "end": "16:00",
+                        "start": "09:30"
+                    },
+                    "postmarket": {
+                        "end": "20:00",
+                        "start": "16:00"
+                    },
+                    "premarket": {
+                        "end": "09:30",
+                        "start": "08:00"
+                    },
+                    "status": "open"
+                },
+                {
+                    "date": "2013-06-18",
+                    "description": "Market is open",
+                    "open": {
+                        "end": "16:00",
+                        "start": "09:30"
+                    },
+                    "postmarket": {
+                        "end": "20:00",
+                        "start": "16:00"
+                    },
+                    "premarket": {
+                        "end": "09:30",
+                        "start": "08:00"
+                    },
+                    "status": "open"
+                },
+                {
+                    "date": "2013-06-19",
+                    "description": "Market is open",
+                    "open": {
+                        "end": "16:00",
+                        "start": "09:30"
+                    },
+                    "postmarket": {
+                        "end": "20:00",
+                        "start": "16:00"
+                    },
+                    "premarket": {
+                        "end": "09:30",
+                        "start": "08:00"
+                    },
+                    "status": "open"
+                },
+                {
+                    "date": "2013-06-20",
+                    "description": "Market is open",
+                    "open": {
+                        "end": "16:00",
+                        "start": "09:30"
+                    },
+                    "postmarket": {
+                        "end": "20:00",
+                        "start": "16:00"
+                    },
+                    "premarket": {
+                        "end": "09:30",
+                        "start": "08:00"
+                    },
+                    "status": "open"
+                },
+                {
+                    "date": "2013-06-21",
+                    "description": "Market is open",
+                    "open": {
+                        "end": "16:00",
+                        "start": "09:30"
+                    },
+                    "postmarket": {
+                        "end": "20:00",
+                        "start": "16:00"
+                    },
+                    "premarket": {
+                        "end": "09:30",
+                        "start": "08:00"
+                    },
+                    "status": "open"
+                },
+                {
+                    "date": "2013-06-22",
+                    "description": "Market is closed",
+                    "status": "closed"
+                },
+                {
+                    "date": "2013-06-23",
+                    "description": "Market is closed",
+                    "status": "closed"
+                },
+                {
+                    "date": "2013-06-24",
+                    "description": "Market is open",
+                    "open": {
+                        "end": "16:00",
+                        "start": "09:30"
+                    },
+                    "postmarket": {
+                        "end": "20:00",
+                        "start": "16:00"
+                    },
+                    "premarket": {
+                        "end": "09:30",
+                        "start": "08:00"
+                    },
+                    "status": "open"
+                },
+                {
+                    "date": "2013-06-25",
+                    "description": "Market is open",
+                    "open": {
+                        "end": "16:00",
+                        "start": "09:30"
+                    },
+                    "postmarket": {
+                        "end": "20:00",
+                        "start": "16:00"
+                    },
+                    "premarket": {
+                        "end": "09:30",
+                        "start": "08:00"
+                    },
+                    "status": "open"
+                },
+                {
+                    "date": "2013-06-26",
+                    "description": "Market is open",
+                    "open": {
+                        "end": "16:00",
+                        "start": "09:30"
+                    },
+                    "postmarket": {
+                        "end": "20:00",
+                        "start": "16:00"
+                    },
+                    "premarket": {
+                        "end": "09:30",
+                        "start": "08:00"
+                    },
+                    "status": "open"
+                },
+                {
+                    "date": "2013-06-27",
+                    "description": "Market is open",
+                    "open": {
+                        "end": "16:00",
+                        "start": "09:30"
+                    },
+                    "postmarket": {
+                        "end": "20:00",
+                        "start": "16:00"
+                    },
+                    "premarket": {
+                        "end": "09:30",
+                        "start": "08:00"
+                    },
+                    "status": "open"
+                },
+                {
+                    "date": "2013-06-28",
+                    "description": "Market is open",
+                    "open": {
+                        "end": "16:00",
+                        "start": "09:30"
+                    },
+                    "postmarket": {
+                        "end": "20:00",
+                        "start": "16:00"
+                    },
+                    "premarket": {
+                        "end": "09:30",
+                        "start": "08:00"
+                    },
+                    "status": "open"
+                },
+                {
+                    "date": "2013-06-29",
+                    "description": "Market is closed",
+                    "status": "closed"
+                },
+                {
+                    "date": "2013-06-30",
+                    "description": "Market is closed",
+                    "status": "closed"
+                }
+            ]
+        },
+        "month": 6,
+        "year": 2013
+    }
+}

@@ -12,7 +12,14 @@ module Tradier
     private
 
     def positions
-      @positions ||= @attrs[:positions][:position].map { |p| Tradier::Position.new(p) }
+      @positions ||= begin
+        if @attrs[:positions] == "null"
+        elsif @attrs[:positions][:position].is_a?(Hash)
+          [Tradier::Position.new(@attrs[:positions][:position])]
+        else
+          @attrs[:positions][:position].map { |p| Tradier::Position.new(p) }
+        end
+      end
     end
 
   end

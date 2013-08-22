@@ -90,7 +90,7 @@ describe Tradier::API::Accounts do
         positions = @client.positions
         expect(positions).to be_an Array
         expect(positions.first).to be_a Tradier::PositionCollection
-        expect(positions.first.first).to be_a Tradier::Position
+        expect(positions[1].first).to be_a Tradier::Position
       end
     end
   end

@@ -1,63 +1,117 @@
 {
-    "accounts":{
-        "account":[
+    "accounts": {
+        "account": [
             {
-                "balances":{
-                    "balance":{
-                        "account_number":10026165,
-                        "account_type":1,
-                        "accumfedamt":0,
-                        "accumfedprev":0,
-                        "bopmveqty":0,
-                        "cashmgncashav":20761.4,
-                        "cash_available":0,
-                        "cash_margin_value":20761.4,
-                        "currtype":0,
-                        "dividend_balance":0,
-                        "equity_value":0,
-                        "long_liquid_value":0,
-                        "long_market_value":0,
-                        "market_value":41522.82,
-                        "net_value":-235000,
-                        "option_requirement":0,
-                        "optnaddtlreqamt":0,
-                        "prev_cash_available":0,
-                        "prev_maintenance_call":0,
-                        "short_liquid_value":0,
-                        "short_market_value":0,
-                        "sweep":0
-                    }
-                },
-                "account_number":10026165
+                "account_number": 64394603,
+                "balances": {
+                    "account_number": 64394603,
+                    "account_type": "cash",
+                    "cash": [
+                        -1930391.4199999999,
+                        {
+                            "cash_available": 0.0,
+                            "funds_available_to_trade": 0,
+                            "prev_day_cash_available": 0.0,
+                            "sweep": 0
+                        }
+                    ],
+                    "close_pl": 0.0,
+                    "equity": -1930391.4199999999,
+                    "long_market_value": 0.0,
+                    "market_value": 0.0,
+                    "open_pl": 0.0,
+                    "option_long_value": 0.0,
+                    "option_requirement": 0.0,
+                    "option_short_value": 0,
+                    "pending_cash": 0.0,
+                    "pending_orders_count": 0,
+                    "short_market_value": 0.0,
+                    "stock_long_value": 0.0
+                }
             },
             {
-                "balances":{
-                    "balance":{
-                        "account_number":15970260,
-                        "account_type":1,
-                        "accumfedamt":0,
-                        "accumfedprev":0,
-                        "bopmveqty":0,
-                        "cashmgncashav":-87387.28,
-                        "cash_available":0,
-                        "cash_margin_value":-87387.28,
-                        "currtype":0,
-                        "dividend_balance":0,
-                        "equity_value":0,
-                        "long_liquid_value":0,
-                        "long_market_value":0,
-                        "market_value":-174774.56,
-                        "net_value":-123476.97,
-                        "option_requirement":0,
-                        "optnaddtlreqamt":0,
-                        "prev_cash_available":0,
-                        "prev_maintenance_call":0,
-                        "short_liquid_value":0,
-                        "short_market_value":0,
-                        "sweep":0
-                    }
-                },
-                "account_number":15970260
+                "account_number": 64394610,
+                "balances": {
+                    "account_number": 64394610,
+                    "account_type": "margin",
+                    "cash": 8753196.5140000004,
+                    "close_pl": 0.0,
+                    "equity": 8763599.0639999993,
+                    "long_market_value": 10406.549999999999,
+                    "margin": {
+                        "fed_call": 0,
+                        "maintenance_call": 0,
+                        "option_buying_power": 8758001.0140000004,
+                        "stock_buying_power": 17516002.028000001,
+                        "stock_short_value": 0,
+                        "sweep": 0
+                    },
+                    "market_value": 10402.549999999999,
+                    "open_pl": 561.19997000000001,
+                    "option_long_value": 0.0,
+                    "option_requirement": 5602.0500000000002,
+                    "option_short_value": 4.0,
+                    "pending_cash": 0.0,
+                    "pending_orders_count": 0,
+                    "short_market_value": 4.0,
+                    "stock_long_value": 10406.549999999999
+                }
+            },
+            {
+                "account_number": 64394613,
+                "balances": {
+                    "account_number": 64394613,
+                    "account_type": "pdt",
+                    "cash": 50297.900000000001,
+                    "close_pl": 0.0,
+                    "equity": 149297.89999999999,
+                    "long_market_value": 99000.0,
+                    "market_value": 99000.0,
+                    "open_pl": 49300.0,
+                    "option_long_value": 99000.0,
+                    "option_requirement": 0.0,
+                    "option_short_value": 0,
+                    "pdt": {
+                        "day_trade_buying_power": 400000.0,
+                        "fed_call": 0,
+                        "maintenance_call": 0,
+                        "option_buying_power": 50297.900000000001,
+                        "stock_buying_power": 100595.8,
+                        "stock_short_value": 0
+                    },
+                    "pending_cash": 0.0,
+                    "pending_orders_count": 0,
+                    "short_market_value": 0.0,
+                    "stock_long_value": 0.0
+                }
+            },
+            {
+                "account_number": 37733449,
+                "balances": {
+                    "account_number": 37733449,
+                    "account_type": "margin",
+                    "cash": 2836.0,
+                    "close_pl": 0.0,
+                    "equity": 2836.0,
+                    "long_market_value": 0.0,
+                    "margin": {
+                        "fed_call": 0,
+                        "maintenance_call": 0,
+                        "option_buying_power": 2836.0,
+                        "stock_buying_power": 5672.0,
+                        "stock_short_value": 0,
+                        "sweep": 0
+                    },
+                    "market_value": 0.0,
+                    "open_pl": 0.0,
+                    "option_long_value": 0.0,
+                    "option_requirement": 0.0,
+                    "option_short_value": 0,
+                    "pending_cash": 0.0,
+                    "pending_orders_count": 0,
+                    "short_market_value": 0.0,
+                    "stock_long_value": 0.0
+                }
             }
         ]
     }

@@ -1,1 +1,18 @@
-{"watchlists":{"watchlist":[{"id":"default","name":"Default"},{"id":"my-watchlist","name":"my_watchlist"},{"id":"test-watchlist","name":"test-watchlist"}]}}
+{
+    "watchlists": {
+        "watchlist": [
+            {
+                "id": "default",
+                "name": "Default"
+            },
+            {
+                "id": "my-watchlist",
+                "name": "my_watchlist"
+            },
+            {
+                "id": "test-watchlist",
+                "name": "test-watchlist"
+            }
+        ]
+    }
+}

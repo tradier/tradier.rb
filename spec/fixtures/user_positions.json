@@ -1,90 +1,49 @@
 {
-    "accounts":{
-        "account":[
+    "accounts": {
+        "account": [
             {
-                "account_number":10026165,
-                "positions":{
-                    "position":[
+                "account_number": 64394603,
+                "positions": "null"
+            },
+            {
+                "account_number": 64394610,
+                "positions": {
+                    "position": [
                         {
-                            "costbasis":37215.44,
-                            "date_acquired":"2013-06-10T15:37:56.503Z",
-                            "quantity":84,
-                            "symbol":"AAPL"
+                            "cost_basis": 9847.3500000000004,
+                            "date_acquired": "2013-08-12T20:09:01.437Z",
+                            "description": "null",
+                            "id": 507,
+                            "quantity": 21.0,
+                            "symbol": "AAPL"
                         },
                         {
-                            "costbasis":11250,
-                            "date_acquired":"2013-06-07T17:32:27.630Z",
-                            "quantity":1,
-                            "symbol":"AAPL130607C00330000"
-                        },
-                        {
-                            "costbasis":1,
-                            "date_acquired":"2013-06-07T17:32:29.330Z",
-                            "quantity":1,
-                            "symbol":"AAPL130607P00330000"
-                        },
-                        {
-                            "costbasis":2620,
-                            "date_acquired":"2013-06-10T18:35:56.333Z",
-                            "quantity":4,
-                            "symbol":"AAPL130622C00450000"
-                        },
-                        {
-                            "costbasis":650,
-                            "date_acquired":"2013-06-07T19:07:43.073Z",
-                            "quantity":1,
-                            "symbol":"AAPL130622C00465000"
-                        },
-                        {
-                            "costbasis":1049362.404,
-                            "date_acquired":"2013-06-13T18:31:47.287Z",
-                            "quantity":1200,
-                            "symbol":"GOOG"
-                        },
-                        {
-                            "costbasis":1750,
-                            "date_acquired":"2013-06-07T17:48:07.700Z",
-                            "quantity":1,
-                            "symbol":"MSFT130720C00018000"
+                            "cost_basis": -2.0,
+                            "date_acquired": "2013-08-13T18:37:49.927Z",
+                            "description": "null",
+                            "id": 513,
+                            "quantity": -1.0,
+                            "symbol": "DELL140118C00015000"
                         }
                     ]
                 }
             },
             {
-                "account_number":15970260,
-                "positions":{
-                    "position":[
-                        {
-                            "costbasis":48992.07,
-                            "date_acquired":"2013-06-11T17:01:52.227Z",
-                            "quantity":111,
-                            "symbol":"AAPL"
-                        },
-                        {
-                            "costbasis":1341,
-                            "date_acquired":"2013-06-11T14:42:19.090Z",
-                            "quantity":100,
-                            "symbol":"DELL"
-                        },
-                        {
-                            "costbasis":860,
-                            "date_acquired":"2013-06-11T14:42:19.410Z",
-                            "quantity":1,
-                            "symbol":"DELL140118C00005000"
-                        },
-                        {
-                            "costbasis":4,
-                            "date_acquired":"2013-06-11T14:42:19.430Z",
-                            "quantity":1,
-                            "symbol":"DELL140118P00005000"
-                        }
-                    ]
+                "account_number": 64394613,
+                "positions": {
+                    "position": {
+                        "cost_basis": 49700.0,
+                        "date_acquired": "2013-07-29T16:21:56.167Z",
+                        "description": "null",
+                        "id": 477,
+                        "quantity": 10.0,
+                        "symbol": "AAPL131019C00400000"
+                    }
                 }
             },
             {
-                "account_number":10060892,
-                "positions":{
-                }
+                "account_number": 37733449,
+                "positions": "null"
             }
         ]
     }
