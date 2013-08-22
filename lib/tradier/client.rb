@@ -40,7 +40,7 @@ module Tradier
 
     # Perform an HTTP POST request
     def post(path, params={})
-      request(:post, path, params, params)
+      request(:post, path, params)
     end
 
     # Perform an HTTP PUT request

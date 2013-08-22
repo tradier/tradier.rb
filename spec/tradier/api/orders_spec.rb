@@ -23,4 +23,21 @@ describe Tradier::API::Accounts do
     end
   end
 
+  describe '#preview_order' do
+    context 'when passed an account number' do
+      before do
+        stub_post("/v1/accounts/123456789/orders").
+          to_return(:body => fixture("order.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      end
+      it "requests the correct resource" do
+        @client.preview_order(:account => 123456789)
+        expect(a_post("/v1/accounts/123456789/orders").with(body: 'preview=true')).to have_been_made
+      end
+      it "returns a Tradier::Order" do
+        order = @client.preview_order(:account => 123456789)
+        expect(order).to be_a Tradier::Order
+      end
+    end
+  end
+
 end
