@@ -40,4 +40,21 @@ describe Tradier::API::Accounts do
     end
   end
 
+  describe '#cancel_order' do
+    context 'when passed an account number' do
+      before do
+        stub_delete("/v1/accounts/123456789/orders/54321").
+          to_return(:body => fixture("order.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      end
+      it "requests the correct resource" do
+        @client.cancel_order(:account => 123456789, :id => 54321)
+        expect(a_delete("/v1/accounts/123456789/orders/54321")).to have_been_made
+      end
+      it "returns a Tradier::Order" do
+        order = @client.cancel_order(:account => 123456789, :id => 54321)
+        expect(order).to be_a Tradier::Order
+      end
+    end
+  end
+
 end

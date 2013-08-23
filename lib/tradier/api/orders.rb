@@ -15,6 +15,11 @@ module Tradier
       def preview_order(options={})
         create_order(options.merge(preview: true))
       end
+
+      def cancel_order(options={})
+        account, id = *options.values_at(:account, :id)
+        object_from_response(Tradier::Order, :delete, "/accounts/#{account}/orders/#{id}", options={})
+      end
     end
   end
 end
