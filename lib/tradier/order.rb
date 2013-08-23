@@ -6,5 +6,9 @@ module Tradier
     :status, :time_in_force, :option_type, :exec_inst, :exec_status, :extended_hours, \
     :trailing_limit_type, :trailing_stop_type, :request_date, :response_date, :num_legs, \
     :errors, :result
+
+    def self.from_response(body={})
+      new(body[:order])
+    end
   end
 end
