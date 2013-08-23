@@ -21,7 +21,7 @@ module Tradier
     # Initializes a new object
     #
     # @param attrs [Hash]
-    # @return [Twitter::Base]
+    # @return [Tradier::Base]
     def initialize(attrs={})
       @attrs = attrs
     end
@@ -46,7 +46,7 @@ module Tradier
     # Update the attributes of an object
     #
     # @param attrs [Hash]
-    # @return [Twitter::Base]
+    # @return [Tradier::Base]
     def update(attrs)
       @attrs.update(attrs)
       self
@@ -55,13 +55,13 @@ module Tradier
     protected
 
     # @param attr [Symbol]
-    # @param other [Twitter::Base]
+    # @param other [Tradier::Base]
     # @return [Boolean]
     def attr_equal(attr, other)
       self.class == other.class && !other.send(attr).nil? && send(attr) == other.send(attr)
     end
 
-    # @param other [Twitter::Base]
+    # @param other [Tradier::Base]
     # @return [Boolean]
     def attrs_equal(other)
       self.class == other.class && !other.attrs.empty? && attrs == other.attrs

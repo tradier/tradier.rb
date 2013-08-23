@@ -23,7 +23,7 @@ module Tradier
     # Initializes a new object
     #
     # @param attrs [Hash]
-    # @return [Twitter::Base]
+    # @return [Tradier::Base]
     def initialize(attrs={})
       @attrs = attrs
     end
