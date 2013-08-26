@@ -20,6 +20,11 @@ module Tradier
         account, id = *options.values_at(:account, :id)
         object_from_response(Tradier::Order, :delete, "/accounts/#{account}/orders/#{id}", options={})
       end
+
+      def order(options={})
+        account, id = *options.values_at(:account, :id)
+        object_from_response(Tradier::Order, :get, "/accounts/#{account}/orders/#{id}", options={})
+      end
     end
   end
 end
