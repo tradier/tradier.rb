@@ -13,6 +13,16 @@ module Tradier
           @attrs = attrs
         end
 
+        def nested_array(klass, response_body)
+          if response_body.is_a?(Array)
+            response_body.map do |element|
+              klass.from_response(element)
+            end
+          else
+            [klass.from_response(response_body)]
+          end
+        end
+
       end
     end
   end

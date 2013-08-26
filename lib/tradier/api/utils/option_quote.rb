@@ -6,14 +6,7 @@ module Tradier
       class OptionQuote < Tradier::API::Utils::Base
 
         def body
-          response_body = @attrs[:options][:option]
-          if response_body.is_a?(Array)
-            response_body.map do |element|
-              Tradier::OptionQuote.from_response(element)
-            end
-          else
-            [Tradier::OptionQuote.from_response(response_body)]
-          end
+          nested_array(Tradier::OptionQuote, @attrs[:options][:option])
         end
 
       end

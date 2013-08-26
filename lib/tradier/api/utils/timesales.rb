@@ -6,14 +6,7 @@ module Tradier
       class Timesales < Tradier::API::Utils::Base
 
         def body
-          response_body = @attrs[:series][:data]
-          if response_body.is_a?(Array)
-            response_body.map do |element|
-              Tradier::Timesales.from_response(element)
-            end
-          else
-            [Tradier::Timesales.from_response(response_body)]
-          end
+          nested_array(Tradier::Timesales, @attrs[:series][:data])
         end
 
       end
