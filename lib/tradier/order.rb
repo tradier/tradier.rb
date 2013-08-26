@@ -8,7 +8,7 @@ module Tradier
     :errors, :result
 
     def self.from_response(body={})
-      new(body[:order])
+      new(body[:order] || body)
     end
   end
 end
