@@ -7,22 +7,22 @@ module Tradier
 
       def quotes(symbols, options={})
         options.merge!('symbols' => normalized_symbols(symbols))
-        quote_objects_from_response(Tradier::Quote, :get, '/markets/quotes', options)
+        object_from_response(Tradier::API::Utils::Quote, :get, '/markets/quotes', options).body
       end
       alias quote quotes
 
       def chains(symbol, options={})
         options.merge!('symbol' => symbol)
-        option_quote_objects_from_response(Tradier::OptionQuote, :get, '/markets/options/chains', options)
+        object_from_response(Tradier::API::Utils::OptionQuote, :get, '/markets/options/chains', options).body
       end
       alias chain chains
 
       def expirations(symbol)
-        expiration_objects_from_response(Date, :get, '/markets/options/expirations', :symbol => symbol)
+        object_from_response(Tradier::API::Utils::Expiration, :get, '/markets/options/expirations', :symbol => symbol).body
       end
 
       def strikes(symbol, expiration)
-        strike_objects_from_response(:get, '/markets/options/strikes', :symbol => symbol, :expiration => expiration)
+        object_from_response(Tradier::API::Utils::Strike, :get, '/markets/options/strikes', :symbol => symbol, :expiration => expiration).body
       end
 
       def clock(options={})
@@ -35,12 +35,12 @@ module Tradier
 
       def timesales(symbol, options={})
         options.merge!('symbol' => symbol)
-        timesales_objects_from_response(Tradier::Timesales, :get, '/markets/timesales', options)
+        object_from_response(Tradier::API::Utils::Timesales, :get, '/markets/timesales', options).body
       end
 
       def history(symbol, options={})
         options.merge!('symbol' => symbol)
-        history_objects_from_response(Tradier::History, :get, '/markets/history', options)
+        object_from_response(Tradier::API::Utils::History, :get, '/markets/history', options).body
       end
 
       private

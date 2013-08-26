@@ -3,6 +3,10 @@ require 'tradier/base'
 module Tradier
   class Calendar < Tradier::Base
 
+    def self.from_response(body={})
+      new(body)
+    end
+
     def month
       @_month ||= @attrs[:calendar][:days][:month]
     end

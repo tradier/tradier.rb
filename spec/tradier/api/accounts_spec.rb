@@ -105,7 +105,7 @@ describe Tradier::API::Accounts do
         @client.orders("123456789")
         expect(a_get("/v1/accounts/123456789/orders")).to have_been_made
       end
-      it "returns a Tradier::Position" do
+      it "returns a Tradier::Order" do
         orders = @client.orders("123456789")
         expect(orders).to be_an Array
         expect(orders.first).to be_a Tradier::Order
@@ -123,8 +123,8 @@ describe Tradier::API::Accounts do
     #   it "returns an array of Tradier::Order" do
     #     orders = @client.orders
     #     expect(orders).to be_an Array
-    #     expect(orders.first).to be_a Tradier::PositionCollection
-    #     expect(orders.first.first).to be_a Tradier::Position
+    #     expect(orders.first).to be_a Tradier::OrderCollection
+    #     expect(orders.first.first).to be_a Tradier::Order
     #   end
     # end
   end

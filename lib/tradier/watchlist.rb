@@ -5,6 +5,10 @@ module Tradier
   class Watchlist < Tradier::Base
     attr_reader :id, :name
 
+    def self.from_response(body={})
+      new(body[:watchlist])
+    end
+
     def items
       @items ||= @attrs[:items][:item].map { |i| Tradier::WatchlistItem.new(i) }
     end

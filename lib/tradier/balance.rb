@@ -9,5 +9,9 @@ module Tradier
     :prev_cash_available, :prev_maintenance_call, :short_liquid_value, \
     :short_market_value, :sweep, :accumFedAmt, :accumFedPrev, :bopmvEqty, \
     :cashMgnCashAv, :optnAddtlReqAmt, :currType
+
+    def self.from_response(body={})
+      new(body)
+    end
   end
 end

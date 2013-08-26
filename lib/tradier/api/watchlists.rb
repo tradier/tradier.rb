@@ -6,11 +6,11 @@ module Tradier
       include Tradier::API::Utils
 
       def watchlists(options={})
-        watchlist_objects_from_response(Tradier::Watchlist, :get, '/watchlists', options)
+        response = object_from_response(Tradier::API::Utils::Watchlist, :get, '/watchlists', options).body
       end
 
       def watchlist(id, options={})
-        watchlist_object_from_response(Tradier::Watchlist, :get, "/watchlists/#{id}", options)
+        object_from_response(Tradier::Watchlist, :get, "/watchlists/#{id}", options)
       end
 
       def delete_watchlist(id, options={})
@@ -18,19 +18,19 @@ module Tradier
       end
 
       def create_watchlist(id, options={})
-        watchlist_object_from_response(Tradier::Watchlist, :post, '/watchlists', options)
+        object_from_response(Tradier::Watchlist, :post, '/watchlists', options)
       end
 
       def update_watchlist(id, options={})
-        watchlist_object_from_response(Tradier::Watchlist, :put, "/watchlists/#{id}", options)
+        object_from_response(Tradier::Watchlist, :put, "/watchlists/#{id}", options)
       end
 
       def watchlist_item(id, symbol, options={})
-        watchlist_item_object_from_response(Tradier::WatchlistItem, :get, "/watchlists/#{id}/symbols/#{symbol}", options)
+        object_from_response(Tradier::WatchlistItem, :get, "/watchlists/#{id}/symbols/#{symbol}", options)
       end
 
       def add_watchlist_item(id, options={})
-        watchlist_item_object_from_response(Tradier::WatchlistItem, :post, "/watchlists/#{id}/symbols", options)
+        object_from_response(Tradier::WatchlistItem, :post, "/watchlists/#{id}/symbols", options)
       end
       alias create_watchlist_item add_watchlist_item
 
@@ -40,7 +40,7 @@ module Tradier
       alias delete_watchlist_item remove_watchlist_item
 
       def update_watchlist_item(id, symbol, options={})
-        watchlist_item_object_from_response(Tradier::WatchlistItem, :put, "/watchlists/#{id}/symbols/#{symbol}", options)
+        object_from_response(Tradier::WatchlistItem, :put, "/watchlists/#{id}/symbols/#{symbol}", options)
       end
 
     end

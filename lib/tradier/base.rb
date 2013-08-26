@@ -1,5 +1,10 @@
 module Tradier
   class Base
+
+    def self.from_response(body={})
+      new(body)
+    end
+
     # Define methods that retrieve the value from an initialized instance variable Hash, using the attribute as a key
     #
     # @param attrs [Array, Set, Symbol]

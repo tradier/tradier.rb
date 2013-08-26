@@ -2,7 +2,7 @@ require 'tradier/base'
 require 'tradier/symbol'
 
 module Tradier
-  class OptionQuote < Base
+  class OptionQuote < Tradier::Base
 
     attr_reader :symbol, :strike, :last, :bid, :ask, :change, :open_interest, :bid_size, :ask_size, :volume
 

@@ -10,37 +10,37 @@ module Tradier
       end
       alias user_profile profile
 
-      def balances(account_number=nil)
+      def balances(account_number=nil, options={})
         if account_number
-          balance_object_from_response(Tradier::Balance, :get, "/accounts/#{account_number}/balances")
+          object_from_response(Tradier::Balance, :get, "/accounts/#{account_number}/balances", options)
         else
-          collection_objects_from_response(Tradier::BalanceCollection, :get, "/user/balances")
+          object_from_response(Tradier::API::Utils::BalanceCollection, :get, "/user/balances", options).body
         end
       end
       alias balance balances
 
-      def positions(account_number=nil)
+      def positions(account_number=nil, options={})
         if account_number
-          position_objects_from_response(Tradier::Position, :get, "/accounts/#{account_number}/positions")
+          object_from_response(Tradier::API::Utils::Position, :get, "/accounts/#{account_number}/positions", options).body
         else
-          collection_objects_from_response(Tradier::PositionCollection, :get, '/user/positions')
+          object_from_response(Tradier::API::Utils::PositionCollection, :get, '/user/positions', options).body
         end
       end
       alias position positions
 
-      def orders(account_number=nil)
+      def orders(account_number=nil, options={})
         if account_number
-          order_objects_from_response(Tradier::Order, :get, "/accounts/#{account_number}/orders")
+          object_from_response(Tradier::API::Utils::Order, :get, "/accounts/#{account_number}/orders", options).body
         else
-          collection_objects_from_response(Tradier::OrderCollection, :get, '/user/orders')
+          object_from_response(Tradier::API::Utils::OrderCollection, :get, '/user/orders', options).body
         end
       end
 
-      def gainloss(account_number=nil)
+      def gainloss(account_number=nil, options={})
         if account_number
-          closed_position_objects_from_response(Tradier::Position, :get, "/accounts/#{account_number}/gainloss")
+          object_from_response(Tradier::API::Utils::Gainloss, :get, "/accounts/#{account_number}/gainloss", options).body
         else
-          collection_objects_from_response(Tradier::GainlossCollection, :get, '/user/gainloss')
+          object_from_response(Tradier::API::Utils::GainlossCollection, :get, '/user/gainloss', options).body
         end
       end
 
