@@ -17,13 +17,21 @@ module Tradier
       end
 
       def cancel_order(options={})
-        account, id = *options.values_at(:account, :id)
-        object_from_response(Tradier::Order, :delete, "/accounts/#{account}/orders/#{id}", options={})
+        account = options.delete(:account)
+        id      = options.delete(:id)
+        object_from_response(Tradier::Order, :delete, "/accounts/#{account}/orders/#{id}", options)
       end
 
       def order(options={})
-        account, id = *options.values_at(:account, :id)
-        object_from_response(Tradier::Order, :get, "/accounts/#{account}/orders/#{id}", options={})
+        account = options.delete(:account)
+        id      = options.delete(:id)
+        object_from_response(Tradier::Order, :get, "/accounts/#{account}/orders/#{id}", options)
+      end
+
+      def update_order(options={})
+        account = options.delete(:account)
+        id      = options.delete(:id)
+        object_from_response(Tradier::Order, :put, "/accounts/#{account}/orders/#{id}", options)
       end
     end
   end
