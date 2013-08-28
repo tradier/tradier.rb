@@ -72,7 +72,7 @@ describe Tradier do
           Tradier.configure do |config|
             config.access_token = [12345, 54321]
           end
-        }.to raise_exception(Tradier::Error::ConfigurationError)
+        }.to raise_error
       end
     end
 
@@ -82,7 +82,7 @@ describe Tradier do
           Tradier.configure do |config|
             config.access_token = nil
           end
-        }.to_not raise_exception(Tradier::Error::ConfigurationError)
+        }.to_not raise_error
       end
     end
   end

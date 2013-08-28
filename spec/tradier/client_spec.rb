@@ -113,11 +113,11 @@ describe Tradier::Client do
       expect(a_get("/v1/markets/quotes").with(:query => {:symbols => "AAPL"})).to have_been_made
     end
     it "catches Faraday errors" do
-      subject.stub!(:connection).and_raise(Faraday::Error::ClientError.new("Oops"))
+      subject.stub(:connection).and_raise(Faraday::Error::ClientError.new("Oops"))
       expect{subject.send(:request, :get, "/path")}.to raise_error Tradier::Error::ClientError
     end
     it "catches MultiJson::DecodeError errors" do
-      subject.stub!(:connection).and_raise(MultiJson::DecodeError.new("unexpected token", [], "<!DOCTYPE html>"))
+      subject.stub(:connection).and_raise(MultiJson::DecodeError.new("unexpected token", [], "<!DOCTYPE html>"))
       expect{subject.send(:request, :get, "/path")}.to raise_error Tradier::Error::DecodeError
     end
   end
