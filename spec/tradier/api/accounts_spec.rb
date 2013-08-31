@@ -55,8 +55,7 @@ describe Tradier::API::Accounts do
       it "returns an array of Tradier::Balance objects" do
         balances = @client.balances
         expect(balances).to be_an Array
-        expect(balances.first).to be_a Tradier::BalanceCollection
-        expect(balances.first.first).to be_a Tradier::Balance
+        expect(balances.first).to be_a Tradier::Balance
       end
     end
   end
@@ -89,8 +88,7 @@ describe Tradier::API::Accounts do
       it "returns an array of Tradier::Position" do
         positions = @client.positions
         expect(positions).to be_an Array
-        expect(positions.first).to be_a Tradier::PositionCollection
-        expect(positions[1].first).to be_a Tradier::Position
+        expect(positions.first).to be_a Tradier::Account
       end
     end
   end
@@ -111,22 +109,21 @@ describe Tradier::API::Accounts do
         expect(orders.first).to be_a Tradier::Order
       end
     end
-    # context 'when no account number' do
-    #   before do
-    #     stub_get("/v1/user/orders").
-    #       to_return(:body => fixture("user_orders.json"), :headers => {:content_type => "application/json; charset=utf-8"})
-    #   end
-    #   it "requests the correct resource" do
-    #     @client.orders
-    #     expect(a_get("/v1/user/orders")).to have_been_made
-    #   end
-    #   it "returns an array of Tradier::Order" do
-    #     orders = @client.orders
-    #     expect(orders).to be_an Array
-    #     expect(orders.first).to be_a Tradier::OrderCollection
-    #     expect(orders.first.first).to be_a Tradier::Order
-    #   end
-    # end
+    context 'when no account number' do
+      before do
+        stub_get("/v1/user/orders").
+          to_return(:body => fixture("user_orders.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      end
+      it "requests the correct resource" do
+        @client.orders
+        expect(a_get("/v1/user/orders")).to have_been_made
+      end
+      it "returns an array of Tradier::Order" do
+        orders = @client.orders
+        expect(orders).to be_an Array
+        expect(orders.first).to be_a Tradier::Account
+      end
+    end
   end
 
   describe '#gainloss' do
@@ -157,8 +154,7 @@ describe Tradier::API::Accounts do
       it "returns an array of Tradier::Position" do
         gainloss = @client.gainloss
         expect(gainloss).to be_an Array
-        expect(gainloss.first).to be_a Tradier::GainlossCollection
-        expect(gainloss.first.first).to be_a Tradier::Position
+        expect(gainloss.first).to be_a Tradier::Account
       end
     end
   end
