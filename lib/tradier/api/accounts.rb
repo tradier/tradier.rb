@@ -14,7 +14,7 @@ module Tradier
         if account_number
           object_from_response(Tradier::Balance, :get, "/accounts/#{account_number}/balances", options)
         else
-          object_from_response(Tradier::API::Utils::BalanceCollection, :get, "/user/balances", options).body
+          object_from_response(Tradier::API::Utils::Balance, :get, "/user/balances", options).body
         end
       end
       alias balance balances
@@ -23,7 +23,7 @@ module Tradier
         if account_number
           object_from_response(Tradier::API::Utils::Position, :get, "/accounts/#{account_number}/positions", options).body
         else
-          object_from_response(Tradier::API::Utils::PositionCollection, :get, '/user/positions', options).body
+          object_from_response(Tradier::API::Utils::Account, :get, '/user/positions', options).body
         end
       end
       alias position positions
@@ -32,7 +32,7 @@ module Tradier
         if account_number
           object_from_response(Tradier::API::Utils::Order, :get, "/accounts/#{account_number}/orders", options).body
         else
-          object_from_response(Tradier::API::Utils::OrderCollection, :get, '/user/orders', options).body
+          object_from_response(Tradier::API::Utils::Account, :get, '/user/orders', options).body
         end
       end
 
@@ -40,7 +40,7 @@ module Tradier
         if account_number
           object_from_response(Tradier::API::Utils::Gainloss, :get, "/accounts/#{account_number}/gainloss", options).body
         else
-          object_from_response(Tradier::API::Utils::GainlossCollection, :get, '/user/gainloss', options).body
+          object_from_response(Tradier::API::Utils::Account, :get, '/user/gainloss', options).body
         end
       end
 

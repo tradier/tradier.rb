@@ -3,10 +3,10 @@ require 'tradier/api/utils/base'
 module Tradier
   module API
     module Utils
-      class BalanceCollection < Tradier::API::Utils::Base
+      class Balance < Tradier::API::Utils::Base
 
         def body
-          nested_array(Tradier::BalanceCollection, @attrs[:accounts][:account])
+          nested_array(Tradier::Balance, @attrs[:accounts][:account])
         end
 
       end
