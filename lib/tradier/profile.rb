@@ -8,7 +8,7 @@ module Tradier
     end
 
     def accounts
-      @accounts ||= @attrs[:profile] && [@attrs[:profile][:account]].flatten.map { |a| puts a.inspect; Tradier::Account.new(a); }
+      @accounts ||= @attrs[:profile] && [@attrs[:profile][:account]].flatten.map { |a| Tradier::Account.new(a); }
     end
   end
 end
