@@ -37,4 +37,40 @@ describe Tradier::Account do
       expect(account.cash?).to be_true
     end
   end
+
+  describe '#positions' do
+    it 'returns an array' do
+      account = Tradier::Account.new(:positions => { :position => [{ :symbol => 'foo' }]})
+      expect(account.positions).to be_an Array
+    end
+
+    it 'returns an a collection of Tradier::Position' do
+      account = Tradier::Account.new(:positions => { :position => [{ :symbol => 'foo' }]})
+      expect(account.positions.first).to be_a Tradier::Position
+    end
+  end
+
+  describe '#orders' do
+    it 'returns an array of orders' do
+      account = Tradier::Account.new(:orders => { :order => [{ :id => '123' }]})
+      expect(account.orders).to be_an Array
+    end
+
+    it 'returns a collection of Tradier::Order' do
+      account = Tradier::Account.new(:orders => { :order => [{ :id => '123' }]})
+      expect(account.orders.first).to be_a Tradier::Order
+    end
+  end
+
+  describe '#gainloss' do
+    it 'returns an array of closed positions' do
+      pending
+    end
+  end
+
+  describe '#history' do
+    it 'returns an array of history' do
+      pending
+    end
+  end
 end
