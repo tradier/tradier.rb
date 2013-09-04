@@ -159,4 +159,37 @@ describe Tradier::API::Accounts do
     end
   end
 
+  describe '#events' do
+    context 'when passed an account number' do
+      before do
+        stub_get("/v1/accounts/123456789/history").
+        to_return(:body => fixture("account_history.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      end
+      it "requests the correct resource" do
+        @client.events("123456789")
+        expect(a_get("/v1/accounts/123456789/history")).to have_been_made
+      end
+      it "returns an array of Tradier::Event" do
+        events = @client.events("123456789")
+        expect(events).to be_an Array
+        expect(events.first).to be_a Tradier::Event
+      end
+    end
+    context 'when no account number' do
+      before do
+        stub_get("/v1/user/history").
+        to_return(:body => fixture("user_history.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      end
+      it "requests the correct resource" do
+        @client.events
+        expect(a_get("/v1/user/history")).to have_been_made
+      end
+      it "returns an array of Tradier::Events" do
+        events = @client.events
+        expect(events).to be_an Array
+        expect(events.first).to be_a Tradier::Account
+      end
+    end
+  end
+
 end

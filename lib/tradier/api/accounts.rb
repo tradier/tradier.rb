@@ -44,6 +44,14 @@ module Tradier
         end
       end
 
+      def events(account_number=nil, options={})
+        if account_number
+          object_from_response(Tradier::API::Utils::Event, :get, "/accounts/#{account_number}/history", options).body
+        else
+          object_from_response(Tradier::API::Utils::Account, :get, '/user/history', options).body
+        end
+      end
+
     end
   end
 end

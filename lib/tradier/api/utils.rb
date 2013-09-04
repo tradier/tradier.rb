@@ -10,6 +10,7 @@ require 'tradier/profile'
 require 'tradier/quote'
 require 'tradier/timesales'
 require 'tradier/watchlist'
+require 'tradier/event'
 
 require 'tradier/api/utils/account'
 require 'tradier/api/utils/balance'
@@ -23,6 +24,7 @@ require 'tradier/api/utils/quote'
 require 'tradier/api/utils/strike'
 require 'tradier/api/utils/timesales'
 require 'tradier/api/utils/watchlist'
+require 'tradier/api/utils/event'
 
 module Tradier
   module API
