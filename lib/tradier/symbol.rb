@@ -31,7 +31,7 @@ module Tradier
         match = match.to_a
         match.shift
 
-        s = Symbol.new(match[0])
+        s = Tradier::Symbol.new(match[0])
         s.adjustment = match[1]
         s.year       = match[2]
         s.month      = match[3]
@@ -43,7 +43,7 @@ module Tradier
       elsif symbol =~ /\d/
         nil
       elsif symbol =~ /[a-zA-Z]+/
-        Symbol.new(symbol)
+        Tradier::Symbol.new(symbol)
       else
         nil
       end
@@ -91,12 +91,6 @@ module Tradier
       @symbol
     end
 
-    private
-
-    def valid_month?
-      @month.to_i <= 12 && @month.to_i >= 1
-    end
-
     def occ_month
       @month.to_i >= 10 ? @month : "0#{@month.to_i}"
     end
@@ -133,6 +127,12 @@ module Tradier
 
     def put_call_description
       put? ? 'PUT' : 'CALL'
+    end
+
+    private
+
+    def valid_month?
+      @month.to_i <= 12 && @month.to_i >= 1
     end
 
   end
