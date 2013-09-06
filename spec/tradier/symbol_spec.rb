@@ -24,6 +24,20 @@ describe Tradier::Symbol do
     end
   end
 
+  describe '#expiration' do
+    it 'returns a Date object' do
+      symbol = Tradier::Symbol.parse('AAPL130622C00280000')
+      expect(symbol.expiration).to be_a(Date)
+    end
+  end
+
+  describe '#strike_price' do
+    it 'returns the strike price as a Fixnum' do
+      symbol = Tradier::Symbol.parse('AAPL130622C00280000')
+      expect(symbol.strike_price).to eq(280.00)
+    end
+  end
+
   describe '#to_s' do
     it 'returns the original symbol' do
       symbol = Tradier::Symbol.parse('AAPL130622C00280000')

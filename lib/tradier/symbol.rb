@@ -84,7 +84,7 @@ module Tradier
     end
 
     def description
-      equity? ? underlier : "#{underlier} #{expiration_description} #{strike_description} #{put_call_description}"
+      equity? ? underlier : "#{underlier} #{expiration_description} $#{strike_description} #{put_call_description}"
     end
 
     def underlier
@@ -122,11 +122,19 @@ module Tradier
     end
 
     def strike_description
-      "$#{@dollars.to_i}.#{occ_cents[0,2]}"
+      "#{@dollars.to_i}.#{occ_cents[0,2]}"
     end
 
     def put_call_description
       put? ? 'PUT' : 'CALL'
+    end
+
+    def expiration
+      Date.new(year_description.to_i, @month.to_i, @day.to_i)
+    end
+
+    def strike_price
+      "#{@dollars}.#{@cents}".to_i
     end
 
     private
