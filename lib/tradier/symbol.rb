@@ -18,7 +18,7 @@ module Tradier
       12 => 'Dec'
     }
 
-    attr_accessor :symbol, :adjustment, :month, :day, :year, :put_call, :dollars, :cents
+    attr_accessor :symbol, :adjustment, :month, :day, :year, :option_type, :dollars, :cents
 
     def initialize(symbol)
       @symbol = symbol
@@ -32,13 +32,13 @@ module Tradier
         match.shift
 
         s = Tradier::Symbol.new(match[0])
-        s.adjustment = match[1]
-        s.year       = match[2]
-        s.month      = match[3]
-        s.day        = match[4]
-        s.put_call   = match[5]
-        s.dollars    = match[6]
-        s.cents      = match[7]
+        s.adjustment  = match[1]
+        s.year        = match[2]
+        s.month       = match[3]
+        s.day         = match[4]
+        s.option_type = match[5]
+        s.dollars     = match[6]
+        s.cents       = match[7]
         s
       elsif symbol =~ /\d/
         nil
@@ -57,13 +57,13 @@ module Tradier
     end
 
     def put?
-      return unless put_call
-      put_call.upcase == 'P'
+      return unless option_type
+      option_type.upcase == 'P'
     end
 
     def call?
-      return unless put_call
-      put_call.upcase == 'C'
+      return unless option_type
+      option_type.upcase == 'C'
     end
 
     def option?
@@ -79,12 +79,12 @@ module Tradier
     end
 
     def to_s
-      s = equity? ? underlier : "#{underlier}#{@adjustment if adjustment?}#{@year}#{occ_month}#{occ_day}#{@put_call}#{occ_dollars}#{occ_cents}"
+      s = equity? ? underlier : "#{underlier}#{@adjustment if adjustment?}#{@year}#{occ_month}#{occ_day}#{@option_type}#{occ_dollars}#{occ_cents}"
       s.upcase
     end
 
     def description
-      equity? ? underlier : "#{underlier} #{expiration_description} $#{strike_description} #{put_call_description}"
+      equity? ? underlier : "#{underlier} #{expiration_description} $#{strike_description} #{option_type_description}"
     end
 
     def underlier
@@ -125,7 +125,7 @@ module Tradier
       "#{@dollars.to_i}.#{occ_cents[0,2]}"
     end
 
-    def put_call_description
+    def option_type_description
       put? ? 'PUT' : 'CALL'
     end
 
