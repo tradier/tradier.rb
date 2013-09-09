@@ -6,7 +6,7 @@ module Tradier
       class Order < Tradier::API::Utils::Base
 
         def body
-          nested_array(Tradier::Order, @attrs[:orders][:order])
+          nested_array(Tradier::Order, [:orders, :order])
         end
 
       end

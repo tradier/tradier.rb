@@ -6,7 +6,7 @@ module Tradier
       class Watchlist < Tradier::API::Utils::Base
 
         def body
-          nested_array(Tradier::Watchlist, @attrs[:watchlists][:watchlist])
+          nested_array(Tradier::Watchlist, [:watchlists, :watchlist])
         end
 
       end

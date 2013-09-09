@@ -32,7 +32,6 @@ module Tradier
 
       private
 
-
       # @param klass [Class]
       # @param request_method [Symbol]
       # @param path [String]

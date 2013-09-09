@@ -13,14 +13,31 @@ module Tradier
           @attrs = attrs
         end
 
-        def nested_array(klass, response_body)
-          if response_body.is_a?(Array)
-            response_body.map do |element|
-              klass.from_response(element)
+        private
+
+        def nested_array(klass, response_path)
+          begin
+            nested_attrs = nested_response_body(response_path)
+            if nested_attrs.is_a?(Array)
+              nested_attrs.map do |element|
+                klass.from_response(element)
+              end
+            else
+              [klass.from_response(nested_attrs)]
             end
-          else
-            [klass.from_response(response_body)]
+          rescue TypeError => e
+            []
           end
+        end
+
+        def nested_response_body(path)
+          body = @attrs.dup
+
+          path.each do |p|
+            body = body[p]
+          end
+
+          body
         end
 
       end

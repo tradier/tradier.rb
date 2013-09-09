@@ -6,7 +6,7 @@ module Tradier
       class Balance < Tradier::API::Utils::Base
 
         def body
-          nested_array(Tradier::Balance, @attrs[:accounts][:account])
+          nested_array(Tradier::Balance, [:accounts, :account])
         end
 
       end

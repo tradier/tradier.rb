@@ -6,7 +6,7 @@ module Tradier
       class Gainloss < Tradier::API::Utils::Base
 
         def body
-          nested_array(Tradier::Position, @attrs[:gainloss][:closed_position])
+          nested_array(Tradier::Position, [:gainloss, :closed_position])
         end
 
       end

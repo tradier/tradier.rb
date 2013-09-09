@@ -6,7 +6,7 @@ module Tradier
       class Timesales < Tradier::API::Utils::Base
 
         def body
-          nested_array(Tradier::Timesales, @attrs[:series][:data])
+          nested_array(Tradier::Timesales, [:series, :data])
         end
 
       end

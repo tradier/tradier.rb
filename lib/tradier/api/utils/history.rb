@@ -6,7 +6,7 @@ module Tradier
       class History < Tradier::API::Utils::Base
 
         def body
-          nested_array(Tradier::History, @attrs[:history][:day])
+          nested_array(Tradier::History, [:history, :day])
         end
 
       end

@@ -6,7 +6,7 @@ module Tradier
       class OptionQuote < Tradier::API::Utils::Base
 
         def body
-          nested_array(Tradier::OptionQuote, @attrs[:options][:option])
+          nested_array(Tradier::OptionQuote, [:options, :option])
         end
 
       end

@@ -6,7 +6,7 @@ module Tradier
       class Event < Tradier::API::Utils::Base
 
         def body
-          nested_array(Tradier::Event, @attrs[:history][:event])
+          nested_array(Tradier::Event, [:history, :event])
         end
 
       end
