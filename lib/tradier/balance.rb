@@ -11,7 +11,7 @@ module Tradier
     :cashMgnCashAv, :optnAddtlReqAmt, :currType
 
     def self.from_response(body={})
-      new(body)
+      new(body[:balances] || body)
     end
   end
 end
