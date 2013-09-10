@@ -5,7 +5,10 @@ module Tradier
 
     # @return [Hash]
     def self.errors
-      @errors ||= Hash[descendants.map{|klass| [klass.const_get(:HTTP_STATUS_CODE), klass]}]
+      @errors ||= descendants.each_with_object({}) do |klass, hash|
+        hash[klass::HTTP_STATUS_CODE] = klass if defined?(klass::HTTP_STATUS_CODE)
+        hash.update(klass.errors)
+      end
     end
 
     # @return [Array]
