@@ -9,12 +9,19 @@ describe Tradier::Error::ServerError do
   Tradier::Error::ServerError.errors.each do |status, exception|
     context "when HTTP status is #{status}" do
       before do
-        stub_get("/v1/markets/quotes").with(:query => {:symbols => 'AAPL'}).to_return(:status => status)
+        stub_get("/v1/markets/quotes").
+          with(:query => {:symbols => 'AAPL'}).
+          to_return(:status => status)
       end
       it "raises #{exception.name}" do
         expect{@client.quotes('AAPL')}.to raise_error exception
       end
     end
+  end
+
+  it 'initializes with an optional response body' do
+    resp = Tradier::Error::ServerError.new('Invalid Response', {}, 'foobar')
+    expect(resp.body).to eq('foobar')
   end
 
 end
