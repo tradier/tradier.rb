@@ -134,7 +134,7 @@ module Tradier
     end
 
     def strike_price
-      "#{@dollars}.#{@cents}".to_i
+      "#{@dollars}.#{@cents}".to_f
     end
 
     private
