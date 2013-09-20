@@ -8,7 +8,7 @@ module Tradier
         def body
           return [] unless @attrs[:expirations].kind_of?(Hash)
 
-          @attrs[:expirations][:date].map do |element|
+          @attrs[:expirations].fetch(:date, []).map do |element|
             Date.parse(element)
           end
         end
