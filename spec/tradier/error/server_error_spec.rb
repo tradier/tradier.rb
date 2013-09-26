@@ -19,9 +19,4 @@ describe Tradier::Error::ServerError do
     end
   end
 
-  it 'initializes with an optional response body' do
-    resp = Tradier::Error::ServerError.new('Invalid Response', {}, 'foobar')
-    expect(resp.body).to eq('foobar')
-  end
-
 end

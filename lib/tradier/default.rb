@@ -27,10 +27,10 @@ module Tradier
     MIDDLEWARE = Faraday::Builder.new do |builder|
       # Convert request params to "www-form-urlencoded"
       builder.use Faraday::Request::UrlEncoded
-      # # Handle 4xx server responses
-      builder.use Tradier::Response::RaiseError, Tradier::Error::ClientError
       # Parse JSON response bodies using MultiJson
       builder.use Tradier::Response::ParseJson
+      # # Handle 4xx server responses
+      builder.use Tradier::Response::RaiseError, Tradier::Error::ClientError
       # # Handle 5xx server responses
       builder.use Tradier::Response::RaiseError, Tradier::Error::ServerError
       # Set Faraday's HTTP adapter
