@@ -13,10 +13,12 @@ Gem::Specification.new do |gem|
   gem.description = "Rubygem for interacting with the Tradier API."
   gem.summary     = gem.description
 
+  gem.license     = ['MIT']
+
   gem.add_dependency 'faraday', ['~> 0.8', '< 0.10']
   gem.add_dependency 'faraday_middleware', ['~> 0.8', '< 0.10']
   gem.add_dependency 'celluloid'
-  gem.add_development_dependency 'bundler', '~> 1.0'
+  gem.add_development_dependency 'bundler', '~> 1'
 
   gem.files = %w(.yardopts LICENSE.md README.md Rakefile tradier.gemspec)
   gem.files += Dir.glob("lib/**/*.rb")
