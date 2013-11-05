@@ -2,7 +2,7 @@
 
 [![Gem Version](https://badge.fury.io/rb/tradier.png)][gem]
 [![Build Status](https://secure.travis-ci.org/tradier/tradier.rb.png?branch=master)][travis]
-[![Dependency Status](https://gemnasium.com/tradier/twitter.png?travis)][gemnasium]
+[![Dependency Status](https://gemnasium.com/tradier/tradier.rb.png?travis)][gemnasium]
 [![Coverage Status](https://coveralls.io/repos/tradier/tradier.rb/badge.png?branch=master)][coveralls]
 
 [gem]: https://rubygems.org/gems/tradier
@@ -60,9 +60,50 @@ For a complete list of the types of orders accepted, refer to [Tradier's trading
 
 ### Interacting with Accounts
 
-To interact with a user's accounts,
+Obtain a user's profile/accounts:
 
-Refer to the complete, [API documentation][rdoc] for a complete listing of methods and usage.
+    client.profile
+
+#### Balances
+
+Obtain an account's balances:
+
+    client.balance('12345678')
+
+#### Positions
+
+Obtain an account's positions
+
+    client.positions('12345678')
+
+Obtain positions for all of a user's accounts:
+
+    client.positions
+
+#### Orders
+
+Obtain an account's order
+
+    client.orders('12345678')
+
+Obtain order for all of a user's accounts:
+
+    client.orders
+
+### Market Data
+
+To obtain a quote, simply request:
+
+    client.quote('SYMBOL')
+
+Option chains can be requested using a symbol and expiration:
+
+    client.chain('SYMBOL', :expiration => '2013-11-14')
+
+
+Refer to the complete [documentation][rdoc] for a complete listing of methods and classes.
+
+[rdoc]: http://rdoc.info/gems/tradier
 
 ## Contributing
 
