@@ -13,11 +13,11 @@ module Tradier
     end
 
     def positions
-      @attrs[:positions][:position].map { |a| Tradier::Position.new(a); }
+      @attrs[:positions][:position].map { |a| Tradier::Position.new(a) }
     end
 
     def orders
-      @attrs[:orders][:order].map { |a| Tradier::Order.new(a); }
+      @attrs[:orders][:order].map { |a| Tradier::Order.new(a) }
     end
 
     def gainloss
