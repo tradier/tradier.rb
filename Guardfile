@@ -4,3 +4,7 @@ guard 'rspec' do
   watch('spec/spec_helper.rb')  { "spec" }
 end
 
+guard 'bundler' do
+  watch('Gemfile')
+  watch('tradier.gemspec')
+end
