@@ -96,6 +96,10 @@ To obtain a quote, simply request:
 
     client.quote('SYMBOL')
 
+Or multiple quotes at one time:
+
+    client.quote(['SYMBOL', 'SYMBOL2'])
+
 Option chains can be requested using a symbol and expiration:
 
     client.chain('SYMBOL', :expiration => '2013-11-14')
@@ -104,8 +108,6 @@ Option chains can be requested using a symbol and expiration:
 Refer to the complete [documentation][rdoc] for a complete listing of methods and classes.
 
 [rdoc]: http://rdoc.info/gems/tradier
-
-## Contributing
 
 ## Copyright
 
