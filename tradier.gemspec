@@ -13,7 +13,7 @@ Gem::Specification.new do |gem|
   gem.description = "Rubygem for interacting with the Tradier API."
   gem.summary     = gem.description
 
-  gem.license     = ['MIT']
+  gem.license     = 'MIT'
 
   gem.add_dependency 'faraday', ['~> 0.8', '< 0.10']
   gem.add_dependency 'faraday_middleware', ['~> 0.8', '< 0.10']
