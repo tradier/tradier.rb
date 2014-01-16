@@ -73,4 +73,49 @@ describe Tradier::Account do
       pending
     end
   end
+
+  describe '#individual_account?' do
+    subject { described_class.new(:classification => 'individual') }
+    it 'returns true when an individual account' do
+      expect(subject.individual_account?).to be_true
+    end
+  end
+
+  describe '#joint_account?' do
+    subject { described_class.new(:classification => 'joint') }
+    it 'returns true when an joint account' do
+      expect(subject.joint_account?).to be_true
+    end
+  end
+
+  describe '#traditional_ira?' do
+    subject { described_class.new(:classification => 'traditional_ira') }
+    it 'returns true when a traditional_ira account' do
+      expect(subject.traditional_ira?).to be_true
+    end
+  end
+
+  describe '#rollover_ira?' do
+    subject { described_class.new(:classification => 'rollover_ira') }
+    it 'returns true when a rollover_ira account' do
+      expect(subject.rollover_ira?).to be_true
+    end
+  end
+
+  describe '#roth_ira?' do
+    subject { described_class.new(:classification => 'roth_ira') }
+    it 'returns true when a roth_ira account' do
+      expect(subject.roth_ira?).to be_true
+    end
+  end
+
+  describe '#ira?' do
+    %w(traditional_ira roth_ira rollover_ira).each do |ira_type|
+      subject { described_class.new(:classification => ira_type) }
+      it "returns true when a #{ira_type} account" do
+        expect(subject.ira?).to be_true
+      end
+    end
+  end
+
 end
