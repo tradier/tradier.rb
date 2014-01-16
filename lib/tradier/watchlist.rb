@@ -6,7 +6,7 @@ module Tradier
     attr_reader :id, :name
 
     def self.from_response(body={})
-      new(body[:watchlist])
+      new(body[:watchlist] || body)
     end
 
     def items
