@@ -15,8 +15,8 @@ Gem::Specification.new do |gem|
 
   gem.license     = 'MIT'
 
-  gem.add_dependency 'faraday', ['~> 0.8', '< 0.10']
-  gem.add_dependency 'faraday_middleware', ['~> 0.8', '< 0.10']
+  gem.add_dependency 'faraday', '~> 0.8'
+  gem.add_dependency 'faraday_middleware'
   gem.add_dependency 'celluloid'
   gem.add_development_dependency 'bundler', '~> 1'
 
