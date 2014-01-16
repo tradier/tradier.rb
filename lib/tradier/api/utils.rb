@@ -11,6 +11,7 @@ require 'tradier/quote'
 require 'tradier/timesales'
 require 'tradier/watchlist'
 require 'tradier/event'
+require 'tradier/event_session'
 
 require 'tradier/api/utils/account'
 require 'tradier/api/utils/balance'

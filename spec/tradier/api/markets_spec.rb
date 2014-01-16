@@ -216,4 +216,21 @@ describe Tradier::API::Markets do
       expect(history.first).to be_a Tradier::History
     end
   end
+
+  describe '#markets_session' do
+    before do
+      stub_post("/v1/markets/events/session").
+        to_return(:body => fixture("session.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+    end
+
+    it "requests the correct resource" do
+      @client.markets_session
+      expect(a_post("/v1/markets/events/session")).to have_been_made
+    end
+
+    it "returns an array of Tradier::EventSession objects" do
+      session = @client.markets_session
+      expect(session).to be_a Tradier::EventSession
+    end
+  end
 end

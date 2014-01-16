@@ -98,6 +98,16 @@ module Tradier
         object_from_response(Tradier::API::Utils::History, :get, '/markets/history', options).body
       end
 
+      # @see http://developer.tradier.com.dev/documentation/markets/create-events-session
+      # @rate_limited Yes
+      # @authentication Requires user context
+      # Create a streaming session
+      # @return [Tradier::EventSession] An event session.
+      # @raise [Tradier::Error::Unauthorized] Error raised when supplied user credentials are not valid.
+      def markets_session(options={})
+        object_from_response(Tradier::EventSession, :post, '/markets/events/session', options)
+      end
+
       private
 
       def normalized_symbols(symbols)
