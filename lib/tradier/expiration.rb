@@ -1,4 +1,5 @@
 require 'tradier/base'
+require 'tradier/adjustment'
 require 'date'
 
 module Tradier
@@ -11,7 +12,18 @@ module Tradier
     end
 
     def strikes
-      @strikes ||= (@attrs[:strikes] || [])
+      @strikes ||= (@attrs[:strikes][:strike] || [])
+    end
+
+    def adjustments
+      @adjustments ||= begin
+        pairs = @attrs[:strikes].fetch(:adjustments, {}).fetch(:adjustment, [])
+        if pairs.is_a?(Hash)
+          [Tradier::Adjustment.from_response(pairs)]
+        else
+          pairs.map { |p| Tradier::Adjustment.from_response(p) }
+        end
+      end
     end
 
     def self.from_response(body={})

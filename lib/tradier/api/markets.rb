@@ -36,10 +36,14 @@ module Tradier
       # @authentication Requires user context
       # Obtain an underlier's expiration dates.
       # @param [String] symbol The underlier's symbol.
-      # @return [Array<Date>] An array of expiration dates.
+      # @overload expirations(symbol, options)
+      #   @option options [Boolean] :strikes Indicate whether or not to include strikes alongside the expiration dates.
+      # @return [Array<Date>] An array of expiration dates when strikes=false.
+      # @return [Array<Tradier::Expiration>] An array of <Tradier::Expiration> when strikes=true.
       # @raise [Tradier::Error::Unauthorized] Error raised when supplied user credentials are not valid.
-      def expirations(symbol)
-        object_from_response(Tradier::API::Utils::Expiration, :get, '/markets/options/expirations', :symbol => symbol).body
+      def expirations(symbol, options={})
+        options.merge!(:symbol => symbol)
+        object_from_response(Tradier::API::Utils::Expiration, :get, '/markets/options/expirations', options).body
       end
 
       # @see https://developer.tradier.com/documentation/markets/get-options-strikes

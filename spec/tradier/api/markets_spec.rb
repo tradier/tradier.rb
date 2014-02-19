@@ -118,6 +118,28 @@ describe Tradier::API::Markets do
       expect(expirations.size).to eq(12)
       expect(expirations.first).to be_a Date
     end
+
+    context 'with strikes' do
+      before do
+        stub_get("/v1/markets/options/expirations").
+          with(:query => {:symbol => "AAPL", :strikes => 'true'}).
+          to_return(:body => fixture("expirations_with_strikes.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      end
+
+      it "requests the correct resource" do
+        @client.expirations("AAPL", :strikes => true)
+
+        expect(a_get("/v1/markets/options/expirations").
+          with(:query => {:symbol => "AAPL", :strikes => 'true'})).to have_been_made
+      end
+
+      it "returns an array of expirations" do
+        expirations = @client.expirations("AAPL", :strikes => true)
+        expect(expirations).to be_an Array
+        expect(expirations.size).to eq(12)
+        expect(expirations.first).to be_a Tradier::Expiration
+      end
+    end
   end
 
   describe "#strikes" do
