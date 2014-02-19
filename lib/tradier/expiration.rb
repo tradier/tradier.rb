@@ -12,7 +12,7 @@ module Tradier
     end
 
     def strikes
-      @strikes ||= (@attrs[:strikes][:strike] || [])
+      @strikes ||= @attrs.fetch(:strikes, {}).fetch(:strike, [])
     end
 
     def adjustments

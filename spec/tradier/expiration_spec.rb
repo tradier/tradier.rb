@@ -16,7 +16,7 @@ describe Tradier::Expiration do
 
   describe '#strikes' do
     it 'returns an array of strikes when set' do
-      exp = described_class.new({ :strikes => [2, 3, 4, 5, 6] })
+      exp = described_class.new({ :strikes => { :strike => [2, 3, 4, 5, 6] }})
       expect(exp.strikes).to be_an Array
       expect(exp.strikes.size).to eq(5)
     end
