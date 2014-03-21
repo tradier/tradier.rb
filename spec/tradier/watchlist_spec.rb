@@ -31,5 +31,13 @@ describe Tradier::Watchlist do
       expect(watchlist.items.size).to eq(2)
       expect(watchlist.items.first).to be_a Tradier::WatchlistItem
     end
+
+    it "returns an array of watchlist items" do
+      response = {:items => { :item => {:symbol => 'AAPL'}}}
+      watchlist = Tradier::Watchlist.new(response)
+      expect(watchlist.items).to be_an Array
+      expect(watchlist.items.size).to eq(1)
+      expect(watchlist.items.first).to be_a Tradier::WatchlistItem
+    end
   end
 end

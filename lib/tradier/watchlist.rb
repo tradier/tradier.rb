@@ -10,7 +10,15 @@ module Tradier
     end
 
     def items
-      @items ||= @attrs[:items][:item].map { |i| Tradier::WatchlistItem.new(i) }
+      @items ||= begin
+        if @attrs[:items][:item].kind_of?(Array)
+          @attrs[:items][:item].map { |i| Tradier::WatchlistItem.new(i) }
+        elsif @attrs[:items][:item].kind_of?(Hash)
+          [Tradier::WatchlistItem.new(@attrs[:items][:item])]
+        else
+          []
+        end
+      end
     end
   end
 end
