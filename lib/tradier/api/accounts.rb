@@ -108,6 +108,9 @@ module Tradier
       #   Request a specific account's events.
       #   @param [String] account_number An account number (optional).
       #   @return [Array<Tradier::Event>] An array of [Tradier::Event] objects for a given account.
+      # @overload events(account_number, options)
+      #   @option options [Integer] :limit Indicate the number of events to return for pagination.
+      #   @option options [Integer] ;offset Indicate the offset of results to return for pagination.
       # @raise [Tradier::Error::Unauthorized] Error raised when supplied user credentials are not valid.
       def events(account_number=nil, options={})
         if account_number
