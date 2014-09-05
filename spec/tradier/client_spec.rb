@@ -88,11 +88,11 @@ describe Tradier::Client do
   describe "#credentials?" do
     it "returns true if all credentials are present" do
       client = Tradier::Client.new(:access_token => "AT")
-      expect(client.credentials?).to be_true
+      expect(client.credentials?).to be_truthy
     end
     it "returns false if any credentials are missing" do
       client = Tradier::Client.new
-      expect(client.credentials?).to be_false
+      expect(client.credentials?).to be_falsey
     end
   end
 
@@ -113,11 +113,11 @@ describe Tradier::Client do
       expect(a_get("/v1/markets/quotes").with(:query => {:symbols => "AAPL"})).to have_been_made
     end
     it "catches Faraday errors" do
-      subject.stub(:connection).and_raise(Faraday::Error::ClientError.new("Oops"))
+      allow(subject).to receive(:connection).and_raise(Faraday::Error::ClientError.new("Oops"))
       expect{subject.send(:request, :get, "/path")}.to raise_error Tradier::Error::ClientError
     end
     it "catches MultiJson::ParseError errors" do
-      subject.stub(:connection).and_raise(MultiJson::ParseError.build(ArgumentError.new, "<!DOCTYPE html>"))
+      allow(subject).to receive(:connection).and_raise(MultiJson::ParseError.build(ArgumentError.new, "<!DOCTYPE html>"))
       expect{subject.send(:request, :get, "/path")}.to raise_error Tradier::Error::DecodeError
     end
   end

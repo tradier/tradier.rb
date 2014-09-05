@@ -12,7 +12,7 @@ group :development do
 end
 
 group :test do
-  gem 'rspec'
+  gem 'rspec', '~> 3.1'
   gem 'webmock'
   gem 'simplecov', :require => false
   gem 'coveralls', :require => false

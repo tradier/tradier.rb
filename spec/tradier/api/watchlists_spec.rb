@@ -55,7 +55,7 @@ describe Tradier::API::Watchlists do
 
     it "returns a 'Tradier::Watchlist' object" do
       status = @client.delete_watchlist('default')
-      expect(status).to be_true
+      expect(status).to be_truthy
     end
   end
 
@@ -140,7 +140,7 @@ describe Tradier::API::Watchlists do
 
     it "returns a 'Tradier::WatchlistItem' object" do
       status = @client.remove_watchlist_item('default', 'aapl')
-      expect(status).to be_true
+      expect(status).to be_truthy
     end
   end
 

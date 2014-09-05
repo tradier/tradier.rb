@@ -6,12 +6,12 @@ describe Tradier::Quote do
     it "returns true when objects symbols are the same" do
       quote = Tradier::Quote.new({ :symbol => 'AAPL' })
       other = Tradier::Quote.new({ :symbol => 'AAPL' })
-      expect(quote == other).to be_true
+      expect(quote == other).to be_truthy
     end
     it "returns false when objects IDs are different" do
       quote = Tradier::Quote.new({ :symbol => 'AAPL' })
       other = Tradier::Quote.new({ :symbol => 'GE' })
-      expect(quote == other).to be_false
+      expect(quote == other).to be_falsey
     end
   end
 

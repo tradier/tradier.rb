@@ -6,36 +6,36 @@ describe Tradier::OptionQuote do
     it "returns true when objects symbols are the same" do
       quote = Tradier::OptionQuote.new(:symbol => 'AAPL150117C01000000')
       other = Tradier::OptionQuote.new(:symbol => 'AAPL150117C01000000')
-      expect(quote == other).to be_true
+      expect(quote == other).to be_truthy
     end
     it "returns false when objects IDs are different" do
       quote = Tradier::OptionQuote.new(:symbol => 'AAPL150117C01000000')
       other = Tradier::OptionQuote.new(:symbol => 'AAPL150117P01000000')
-      expect(quote == other).to be_false
+      expect(quote == other).to be_falsey
     end
   end
 
   describe '#put?' do
     it 'returns true when the option is a put' do
       quote = Tradier::OptionQuote.new(:symbol => 'AAPL150117P01000000')
-      expect(quote.put?).to be_true
+      expect(quote.put?).to be_truthy
     end
 
     it 'returns false when the option is a call' do
       quote = Tradier::OptionQuote.new(:symbol => 'AAPL150117C01000000')
-      expect(quote.put?).to be_false
+      expect(quote.put?).to be_falsey
     end
   end
 
   describe '#call?' do
     it 'returns true when the option is a call' do
       quote = Tradier::OptionQuote.new(:symbol => 'AAPL150117C01000000')
-      expect(quote.call?).to be_true
+      expect(quote.call?).to be_truthy
     end
 
     it 'returns false when the option is a call' do
       quote = Tradier::OptionQuote.new(:symbol => 'AAPL150117P01000000')
-      expect(quote.call?).to be_false
+      expect(quote.call?).to be_falsey
     end
   end
 

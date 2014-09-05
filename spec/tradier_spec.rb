@@ -27,10 +27,10 @@ describe Tradier do
 
   describe ".respond_to?" do
     it "delegates to Tradier::Client" do
-      expect(Tradier.respond_to?(:quotes)).to be_true
+      expect(Tradier.respond_to?(:quotes)).to be_truthy
     end
     it "takes an optional argument" do
-      expect(Tradier.respond_to?(:quotes, true)).to be_true
+      expect(Tradier.respond_to?(:quotes, true)).to be_truthy
     end
   end
 
@@ -92,13 +92,13 @@ describe Tradier do
       Tradier.configure do |config|
         config.access_token = 'OT'
       end
-      expect(Tradier.credentials?).to be_true
+      expect(Tradier.credentials?).to be_truthy
     end
     it "returns false if any credentials are missing" do
       Tradier.configure do |config|
         config.version = 'v2'
       end
-      expect(Tradier.credentials?).to be_false
+      expect(Tradier.credentials?).to be_falsey
     end
   end
 
