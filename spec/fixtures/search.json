@@ -1,0 +1,54 @@
+{
+  "securities": {
+    "security": [
+      {
+        "symbol": "AAPL",
+        "exchange": "XNAS",
+        "type": "stock",
+        "description": "Apple Inc"
+      },
+      {
+        "symbol": "AMAT",
+        "exchange": "XNAS",
+        "type": "stock",
+        "description": "Applied Materials Inc"
+      },
+      {
+        "symbol": "AMCC",
+        "exchange": "XNAS",
+        "type": "stock",
+        "description": "Applied Micro Circuits Corp"
+      },
+      {
+        "symbol": "AREX",
+        "exchange": "XNAS",
+        "type": "stock",
+        "description": "Approach Resources Inc"
+      },
+      {
+        "symbol": "AAOI",
+        "exchange": "XNAS",
+        "type": "stock",
+        "description": "Applied Optoelectronics Inc"
+      },
+      {
+        "symbol": "AIT",
+        "exchange": "XNYS",
+        "type": "stock",
+        "description": "Applied Industrial Technologies Inc"
+      },
+      {
+        "symbol": "AGTC",
+        "exchange": "XNAS",
+        "type": "stock",
+        "description": "Applied Genetic Technologies Corp"
+      },
+      {
+        "symbol": "ARCI",
+        "exchange": "XNAS",
+        "type": "stock",
+        "description": "Appliance Recycling Centers Of America Inc"
+      }
+    ]
+  }
+}

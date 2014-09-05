@@ -255,4 +255,42 @@ describe Tradier::API::Markets do
       expect(session).to be_a Tradier::EventSession
     end
   end
+
+  describe '#search' do
+    before do
+      stub_get("/v1/markets/search").
+        with(:query => { :q => 'App'}).
+        to_return(:body => fixture("search.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+    end
+
+    it "requests the correct resource" do
+      @client.search('App')
+      expect(a_get("/v1/markets/search?q=App")).to have_been_made
+    end
+
+    it "returns an array of Tradier::Security objects" do
+      results = @client.search('App')
+      expect(results).to be_an Array
+      expect(results.first).to be_a Tradier::Security
+    end
+  end
+
+  describe '#lookup' do
+    before do
+      stub_get("/v1/markets/lookup").
+        with(:query => { :q => 'AA'}).
+        to_return(:body => fixture("lookup.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+    end
+
+    it "requests the correct resource" do
+      @client.lookup('AA')
+      expect(a_get("/v1/markets/lookup?q=AA")).to have_been_made
+    end
+
+    it "returns an array of Tradier::Security objects" do
+      results = @client.lookup('AA')
+      expect(results).to be_an Array
+      expect(results.first).to be_a Tradier::Security
+    end
+  end
 end

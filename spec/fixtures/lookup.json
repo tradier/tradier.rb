@@ -1,0 +1,114 @@
+{
+  "securities": {
+    "security": [
+      {
+        "symbol": "AAPL",
+        "exchange": "XNAS",
+        "type": "stock",
+        "description": "Apple Inc"
+      },
+      {
+        "symbol": "AA",
+        "exchange": "XNYS",
+        "type": "stock",
+        "description": "Alcoa Inc"
+      },
+      {
+        "symbol": "AAL",
+        "exchange": "XNAS",
+        "type": "stock",
+        "description": "American Airlines Group Inc"
+      },
+      {
+        "symbol": "AAN",
+        "exchange": "XNYS",
+        "type": "stock",
+        "description": "Aaron's Inc"
+      },
+      {
+        "symbol": "AAP",
+        "exchange": "XNYS",
+        "type": "stock",
+        "description": "Advance Auto Parts Inc"
+      },
+      {
+        "symbol": "AAXJ",
+        "exchange": "XNAS",
+        "type": "etf",
+        "description": "iShares MSCI All Country Asia ex Japan Index Fund"
+      },
+      {
+        "symbol": "AAVL",
+        "exchange": "XNAS",
+        "type": "stock",
+        "description": "Avalanche Biotechnologies Inc"
+      },
+      {
+        "symbol": "AAOI",
+        "exchange": "XNAS",
+        "type": "stock",
+        "description": "Applied Optoelectronics Inc"
+      },
+      {
+        "symbol": "AAWW",
+        "exchange": "XNAS",
+        "type": "stock",
+        "description": "Atlas Air Worldwide Holdings Inc"
+      },
+      {
+        "symbol": "AAON",
+        "exchange": "XNAS",
+        "type": "stock",
+        "description": "AAON Inc"
+      },
+      {
+        "symbol": "AAT",
+        "exchange": "XNYS",
+        "type": "stock",
+        "description": "American Assets Trust Inc"
+      },
+      {
+        "symbol": "AAME",
+        "exchange": "XNAS",
+        "type": "stock",
+        "description": "Atlantic American Corp"
+      },
+      {
+        "symbol": "AADR",
+        "exchange": "ARCX",
+        "type": "etf",
+        "description": "WCM BNY Mellon Focused Growth ADR ETF"
+      },
+      {
+        "symbol": "AAIT",
+        "exchange": "XNAS",
+        "type": "etf",
+        "description": "iShares MSCI All Country Asia Information Technology Index Fund"
+      },
+      {
+        "symbol": "AAMC",
+        "exchange": "XASE",
+        "type": "stock",
+        "description": "Altisource Asset Management Corp Com"
+      },
+      {
+        "symbol": "AAp",
+        "exchange": "XASE",
+        "type": "stock",
+        "description": "Alcoa Inc. $3.75 Preferred Stock"
+      },
+      {
+        "symbol": "AAU",
+        "exchange": "XASE",
+        "type": "stock",
+        "description": "Almaden Minerals, Ltd. Ordinary Shares (Canada)"
+      },
+      {
+        "symbol": "AAV",
+        "exchange": "XNYS",
+        "type": "stock",
+        "description": "Advantage Oil & Gas Ltd Ordinary Shares"
+      }
+    ]
+  }
+}

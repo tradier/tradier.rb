@@ -112,6 +112,34 @@ module Tradier
         object_from_response(Tradier::EventSession, :post, '/markets/events/session', options)
       end
 
+      # @see https://developer.tradier.com/documentation/markets/get-search
+      # @rate_limited Yes
+      # @authentication Requires user context
+      # Search for a stock symbol using a keyword lookup.
+      # @param [String] q The company/index name to search for.
+      # @overload search(q, options)
+      #   @option options [Boolean] :indexes Indicate whether or not to include indexes in results.
+      # @return [Array<Tradier::Security>] An array of search results.
+      # @raise [Tradier::Error::Unauthorized] Error raised when supplied user credentials are not valid.
+      def search(q, options={})
+        options.merge!('q' => q)
+        object_from_response(Tradier::API::Utils::Search, :get, '/markets/search', options).body
+      end
+
+      # @see https://developer.tradier.com/documentation/markets/get-lookup
+      # @rate_limited Yes
+      # @authentication Requires user context
+      # Lookup a symbol.
+      # @param [String] q The company/index name to search for.
+      # @overload lookup(q, options)
+      #   @option options [Boolean] :indexes Indicate whether or not to include indexes in results.
+      # @return [Array<Tradier::Security>] An array of lookup results.
+      # @raise [Tradier::Error::Unauthorized] Error raised when supplied user credentials are not valid.
+      def lookup(q, options={})
+        options.merge!('q' => q)
+        object_from_response(Tradier::API::Utils::Search, :get, '/markets/lookup', options).body
+      end
+
       private
 
       def normalized_symbols(symbols)
