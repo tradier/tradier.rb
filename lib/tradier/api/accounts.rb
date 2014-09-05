@@ -116,6 +116,7 @@ module Tradier
           object_from_response(Tradier::API::Utils::Account, :get, '/user/history', options).body
         end
       end
+      alias :history :events
 
     end
   end

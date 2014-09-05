@@ -190,6 +190,16 @@ describe Tradier::API::Accounts do
         expect(events.first).to be_a Tradier::Account
       end
     end
+    context 'with pagination' do
+      before do
+        stub_get("/v1/accounts/123456789/history?limit=12&offset=2").
+        to_return(:body => fixture("account_history.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      end
+      it "requests the correct resource" do
+        @client.events("123456789", :limit => 12, :offset => 2)
+        expect(a_get("/v1/accounts/123456789/history?limit=12&offset=2")).to have_been_made
+      end
+    end
   end
 
 end
