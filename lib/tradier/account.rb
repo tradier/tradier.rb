@@ -13,17 +13,27 @@ module Tradier
     end
 
     def positions
-      @attrs[:positions][:position].map { |a| Tradier::Position.new(a) }
+      @attrs.fetch(:positions, {}).
+        fetch(:position, []).
+        map { |a| Tradier::Position.new(a) }
     end
 
     def orders
-      @attrs[:orders][:order].map { |a| Tradier::Order.new(a) }
+      @attrs.fetch(:orders, {}).
+        fetch(:order, []).
+        map { |a| Tradier::Order.new(a) }
     end
 
     def gainloss
+      @attrs.fetch(:gainloss, {}).
+        fetch(:closed_position, []).
+        map { |a| Tradier::Position.new(a) }
     end
 
     def history
+      @attrs.fetch(:history, {}).
+        fetch(:event, []).
+        map { |a| Tradier::Event.new(a) }
     end
 
     def individual_account?

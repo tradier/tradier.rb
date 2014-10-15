@@ -64,13 +64,25 @@ describe Tradier::Account do
 
   describe '#gainloss' do
     it 'returns an array of closed positions' do
-      skip
+      account = Tradier::Account.new(:gainloss => { :closed_position => [{ :id => '123' }]})
+      expect(account.gainloss).to be_an Array
+    end
+
+    it 'returns a collection of Tradier::Position' do
+      account = Tradier::Account.new(:gainloss => { :closed_position => [{ :id => '123' }]})
+      expect(account.gainloss.first).to be_a Tradier::Position
     end
   end
 
   describe '#history' do
     it 'returns an array of history' do
-      skip
+      account = Tradier::Account.new(:history => { :event => [{ :id => '123' }]})
+      expect(account.history).to be_an Array
+    end
+
+    it 'returns a collection of Tradier::Event' do
+      account = Tradier::Account.new(:history => { :event => [{ :id => '123' }]})
+      expect(account.history.first).to be_a Tradier::Event
     end
   end
 
