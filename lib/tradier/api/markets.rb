@@ -123,7 +123,7 @@ module Tradier
       # @raise [Tradier::Error::Unauthorized] Error raised when supplied user credentials are not valid.
       def search(q, options={})
         options.merge!('q' => q)
-        object_from_response(Tradier::API::Utils::Search, :get, '/markets/search', options).body
+        object_from_response(Tradier::API::Utils::Security, :get, '/markets/search', options).body
       end
 
       # @see https://developer.tradier.com/documentation/markets/get-lookup
@@ -137,7 +137,7 @@ module Tradier
       # @raise [Tradier::Error::Unauthorized] Error raised when supplied user credentials are not valid.
       def lookup(q, options={})
         options.merge!('q' => q)
-        object_from_response(Tradier::API::Utils::Search, :get, '/markets/lookup', options).body
+        object_from_response(Tradier::API::Utils::Security, :get, '/markets/lookup', options).body
       end
 
       private

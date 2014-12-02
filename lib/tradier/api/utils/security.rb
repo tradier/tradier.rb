@@ -3,7 +3,7 @@ require 'tradier/api/utils/base'
 module Tradier
   module API
     module Utils
-      class Search < Tradier::API::Utils::Base
+      class Security < Tradier::API::Utils::Base
 
         def body
           nested_array(Tradier::Security, [:securities, :security])
