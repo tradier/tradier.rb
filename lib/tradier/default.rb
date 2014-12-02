@@ -38,10 +38,9 @@ module Tradier
     end unless defined? Tradier::Default::MIDDLEWARE
 
     class << self
-
       # @return [Hash]
       def options
-        Hash[Tradier::Configurable.keys.map{|key| [key, send(key)]}]
+        Hash[Tradier::Configurable.keys.map { |key| [key, send(key)] }]
       end
 
       # @return [String]
@@ -69,7 +68,6 @@ module Tradier
       def middleware
         MIDDLEWARE
       end
-
     end
   end
 end
