@@ -140,6 +140,15 @@ module Tradier
         object_from_response(Tradier::API::Utils::Security, :get, '/markets/lookup', options).body
       end
 
+      # @rate_limited Yes
+      # @authentication Requires user context
+      # Retrieve the Easy-To-Borrow list.
+      # @return [Array<Tradier::Security>] An array of securities.
+      # @raise [Tradier::Error::Unauthorized] Error raised when supplied user credentials are not valid.
+      def etb
+        object_from_response(Tradier::API::Utils::Security, :get, '/markets/etb').body
+      end
+
       private
 
       def normalized_symbols(symbols)

@@ -293,4 +293,22 @@ describe Tradier::API::Markets do
       expect(results.first).to be_a Tradier::Security
     end
   end
+
+  describe '#etb' do
+    before do
+      stub_get("/v1/markets/etb").
+      to_return(:body => fixture("etb.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+    end
+
+    it "requests the correct resource" do
+      @client.etb
+      expect(a_get("/v1/markets/etb")).to have_been_made
+    end
+
+    it "returns an array of Tradier::Security objects" do
+      results = @client.etb
+      expect(results).to be_an Array
+      expect(results.first).to be_a Tradier::Security
+    end
+  end
 end
