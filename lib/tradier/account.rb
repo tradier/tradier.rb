@@ -37,23 +37,23 @@ module Tradier
     end
 
     def individual_account?
-      classification.downcase == 'individual'
+      classification && classification.downcase == 'individual'
     end
 
     def joint_account?
-      classification.downcase == 'joint'
+      classification && classification.downcase == 'joint'
     end
 
     def traditional_ira?
-      classification.downcase == 'traditional_ira'
+      classification && classification.downcase == 'traditional_ira'
     end
 
     def roth_ira?
-      classification.downcase == 'roth_ira'
+      classification && classification.downcase == 'roth_ira'
     end
 
     def rollover_ira?
-      classification.downcase == 'rollover_ira'
+      classification && classification.downcase == 'rollover_ira'
     end
 
     def ira?
