@@ -1,6 +1,17 @@
 require 'spec_helper'
 
 describe Tradier::WatchlistItem do
+  describe '#id' do
+    it "returns the id when set" do
+      item = Tradier::WatchlistItem.new({ :id => 'brk-b', :symbol => 'BRK.B' })
+      expect(item.id).to eq('brk-b')
+    end
+    it "returns nil when id is not set" do
+      item = Tradier::WatchlistItem.new({ :price => 1.00 })
+      expect(item.id).to be_nil
+    end
+  end
+
   describe '#symbol' do
     it "returns the symbol when set" do
       item = Tradier::WatchlistItem.new({ :symbol => 'AAPL' })

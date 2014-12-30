@@ -2,7 +2,7 @@ require 'tradier/base'
 
 module Tradier
   class WatchlistItem < Tradier::Base
-    attr_reader :symbol, :shares, :purchase_price
+    attr_reader :id, :symbol, :shares, :purchase_price
 
     def self.from_response(body={})
       new(body[:item])
