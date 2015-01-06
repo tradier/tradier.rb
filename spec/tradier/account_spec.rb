@@ -130,4 +130,11 @@ describe Tradier::Account do
     end
   end
 
+  describe '#entity?' do
+    subject { described_class.new(:classification => 'entity') }
+    it 'returns true when a entity account' do
+      expect(subject.entity?).to be_truthy
+    end
+  end
+
 end

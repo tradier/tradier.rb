@@ -60,5 +60,9 @@ module Tradier
       traditional_ira? || roth_ira? || rollover_ira?
     end
 
+    def entity?
+      classification && classification.downcase == 'entity'
+    end
+
   end
 end
