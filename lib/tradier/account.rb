@@ -2,7 +2,7 @@ require 'tradier/base'
 
 module Tradier
   class Account < Tradier::Base
-    attr_reader :account_number, :type, :classification
+    attr_reader :account_number, :type, :classification, :status
 
     def margin?
       type.downcase == 'margin'

@@ -137,4 +137,15 @@ describe Tradier::Account do
     end
   end
 
+  describe "#status" do
+    it "returns the status when set" do
+      account = Tradier::Account.new(:status => 'closed')
+      expect(account.status).to eq('closed')
+    end
+    it "returns nil when status is not set" do
+      account = Tradier::Account.new({})
+      expect(account.status).to be_nil
+    end
+  end
+
 end
