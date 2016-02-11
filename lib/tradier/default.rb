@@ -24,7 +24,7 @@ module Tradier
       }
     } unless defined? Tradier::Default::CONNECTION_OPTIONS
 
-    MIDDLEWARE = Faraday::RackBuilder.new do |builder|
+    MIDDLEWARE = Faraday::Builder.new do |builder|
       # Convert request params to "www-form-urlencoded"
       builder.use Faraday::Request::UrlEncoded
       # Parse JSON response bodies using MultiJson
