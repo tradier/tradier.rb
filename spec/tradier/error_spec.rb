@@ -5,13 +5,13 @@ describe Tradier::Error do
   describe "#initialize" do
     it "wraps another error class" do
       begin
-        raise Faraday::Error::ClientError.new("Oops")
-      rescue Faraday::Error::ClientError
+        raise Faraday::ClientError.new("Oops")
+      rescue Faraday::ClientError
         begin
           raise Tradier::Error
         rescue Tradier::Error => error
           expect(error.message).to eq "Oops"
-          expect(error.wrapped_exception.class).to eq Faraday::Error::ClientError
+          expect(error.wrapped_exception.class).to eq Faraday::ClientError
         end
       end
     end

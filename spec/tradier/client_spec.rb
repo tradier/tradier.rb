@@ -113,7 +113,7 @@ describe Tradier::Client do
       expect(a_get("/v1/markets/quotes").with(:query => {:symbols => "AAPL"})).to have_been_made
     end
     it "catches Faraday errors" do
-      allow(subject).to receive(:connection).and_raise(Faraday::Error::ClientError.new("Oops"))
+      allow(subject).to receive(:connection).and_raise(Faraday::ClientError.new("Oops"))
       expect{subject.send(:request, :get, "/path")}.to raise_error Tradier::Error::ClientError
     end
     it "catches MultiJson::ParseError errors" do

@@ -65,7 +65,7 @@ module Tradier
     def request(method, request_path, params={}, signature_params=params)
       request_setup = request_setup(method, versioned_path(request_path), params)
       connection.send(method.to_sym, versioned_path(request_path), params, &request_setup).env
-    rescue Faraday::Error::ClientError
+    rescue Faraday::ClientError
       raise Tradier::Error::ClientError
     rescue MultiJson::DecodeError
       raise Tradier::Error::DecodeError
